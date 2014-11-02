@@ -1,16 +1,45 @@
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-var fs = require('fs');
-var path = require('path');
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 module.exports = function(grunt) {
-    grunt.loadNpmTasks('grunt-replace');
     // Project configuration.
     grunt.initConfig({
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        copy: {
+            main: {
+                files: [
+                    {
+                        cwd: 'src/website/',
+                        src: ['**/*'],
+                        dest: 'build/',
+                        expand: true, 
+                    }
+                ]
+            }
+        },
         concat: {
             main: {
                 files: {
-                    'build/index.html': ['src/index.html'],
+                    'build/beginner_guides/programmer_talk/index.html' : [
+                        'src/remark/header.html',
+                        'src/markdown/beginner_guides/programmer_talk.md',
+                        'src/remark/footer.html' ],
+                    'build/beginner_guides/language_syntax/index.html' : [
+                        'src/remark/header.html',
+                        'src/markdown/beginner_guides/language_syntax.md',
+                        'src/remark/footer.html' ],
+                    'build/beginner_guides/how_a_computer_works/index.html' : [
+                        'src/remark/header.html',
+                        'src/markdown/beginner_guides/how_a_computer_works.md',
+                        'src/remark/footer.html' ],
+                    'build/beginner_guides/why_crashes_happen/index.html' : [
+                        'src/remark/header.html',
+                        'src/markdown/beginner_guides/why_crashes_happen.md',
+                        'src/remark/footer.html' ],
+                    'build/beginner_guides/make_your_own_program/index.html' : [
+                        'src/remark/header.html',
+                        'src/markdown/beginner_guides/make_your_own_program.md',
+                        'src/remark/footer.html' ],
+                    'build/beginner_guides/post_mortem/index.html' : [
+                        'src/remark/header.html',
+                        'src/markdown/beginner_guides/post_mortem.md',
+                        'src/remark/footer.html' ],
                     'build/test/index.html' : [
                         'src/remark/header.html',
                         'src/markdown/test.md',
@@ -18,7 +47,6 @@ module.exports = function(grunt) {
                 },
             }
         },
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         'gh-pages': {
             main: {
                 options: {
@@ -28,14 +56,12 @@ module.exports = function(grunt) {
             }
         }
     });
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Load tasks.
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-gh-pages');
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Default task: does everything except deployment
-    grunt.registerTask('default', ['concat']);
-    // deploy task: runs everything in order.
+    grunt.registerTask('default', ['copy', 'concat']);
+    // Deploy task: runs everything in order.
     grunt.registerTask('deploy', ['default', 'gh-pages']);
 };
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
