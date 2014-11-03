@@ -258,13 +258,21 @@ Stuff
   ###-Hex
 ]
 .right-column[
-* Call stack
-* Stack
-* Heap
-* Base 2/16
-* Float
-* Compiler
-* Memory
+# Hexidecimal
+
+Imagine a world where people have 16 fingers, this is how they 'count'
+
+  0   1  2  3  4  5  6  7  8  9  A  B  C  D  E  F 
+  10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F
+  
+|      | Decimal             | Hexidecimal         |
+|------|---------------------|---------------------|
+| 0001 | 1 * 1 = 1           | 1 * 1 = 1           |
+| 0010 | 1* 10 = 10          | 1 * 16 = 16         |
+| 0100 | 10* 10 = 100        | 16 * 16 = 256       |
+| 1000 | 10 * 10 * 10 = 1000 | 16 * 16 * 16 = 4096 |
+|      |                     |                     |
+
 ]
 
 ---
@@ -281,7 +289,9 @@ Stuff
 * Compiler
 * Memory
 ]
+# Call Stack
 
+The 'stack' of 'calls'...
 ---
 .left-column[
   ### Medium
@@ -290,11 +300,10 @@ Stuff
   ###-Stack
 ]
 .right-column[
-* Heap
-* Base 2/16
-* Float
-* Compiler
-* Memory
+
+# Stack 
+
+Where nice ordered things live.
 ]
 
 ---
@@ -306,10 +315,9 @@ Stuff
   ###-Heap
 ]
 .right-column[
-* Base 2/16
-* Float
-* Compiler
-* Memory
+# Heap
+
+Where random stuff lives
 ]
 
 ---
@@ -322,8 +330,9 @@ Stuff
   ###-Base 2/16
 ]
 .right-column[
-* Float
-* Compiler
+# Base 2 and Base 16
+
+Another name for Binary and Hexidecimal.
 ]
 
 ---
@@ -337,7 +346,10 @@ Stuff
   ###-Float
 ]
 .right-column[
-* Compiler
+# Float
+
+A 'floating point number'. 
+Maybe you know it as a number with a decimal point.
 ]
 
 ---
@@ -352,6 +364,9 @@ Stuff
   ###-Compiler
 ]
 .right-column[
+# Compiler
+
+The program that turns you code into it's own program.
 ]
 ---
 class: center, middle
@@ -379,12 +394,9 @@ stuff
   ###-Template
 ]
 .right-column[
-* Handle
-* Interface
-* Overflow
-* Corruption
-* Violation
-* Segfault
+# Template
+
+It can mean lots of things.
 ]
 
 ---
@@ -394,11 +406,9 @@ stuff
   ###-Handle
 ]
 .right-column[
-* Interface
-* Overflow
-* Corruption
-* Violation
-* Segfault
+# Handle
+
+A pointer with extra features.
 ]
 
 ---
@@ -409,10 +419,9 @@ stuff
   ###-Interface
 ]
 .right-column[
-* Overflow
-* Corruption
-* Violation
-* Segfault
+# Interface
+
+Like a user interface.
 ]
 
 ---
@@ -424,9 +433,9 @@ stuff
   ###-Overflow
 ]
 .right-column[
-* Corruption
-* Violation
-* Segfault
+# Buffer Overflow
+
+Bad things
 ]
 
 ---
@@ -439,8 +448,9 @@ stuff
   ###-Corrupt
 ]
 .right-column[
-* Violation
-* Segfault
+# Memory Corruption
+
+When something edited the wrong memory.
 ]
 
 ---
@@ -454,7 +464,7 @@ stuff
   ###-Violation
 ]
 .right-column[
-* Segfault
+# Access Violation
 ]
 
 ---
@@ -469,7 +479,11 @@ stuff
   ###-Segfault
 ]
 .right-column[
+# Segmentation Fault
+
+Trying to use a null pointer.
 ]
+
 
 ---
 class: center, middle
