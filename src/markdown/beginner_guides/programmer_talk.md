@@ -3,6 +3,10 @@ class: center, middle
 
 By Nathan Ross Powell
 
+???
+
+These are where the sldie notes go.
+
 ---
 # Intro
 
@@ -32,7 +36,7 @@ Easy
 ---
 .left-column[
   ### Easy
-  ### - Memory
+  ###-Memory
 ]
 .right-column[
 This is RAM (Random Access Memory).
@@ -42,8 +46,8 @@ Your computer probably has a lot of it!
 ---
 .left-column[
   ### Easy
-  ### - Memory
-  ### - Variable
+  ###-Memory
+  ###-Variable
 ]
 .right-column[
 The basic building block of any computer program.
@@ -61,9 +65,9 @@ int and_so_on = 5;
 ---
 .left-column[
   ### Easy
-  ### - Memory
-  ### - Variable
-  ### - Function
+  ###-Memory
+  ###-Variable
+  ###-Function
 ]
 .right-column[
 To do...
@@ -72,10 +76,10 @@ To do...
 ---
 .left-column[
   ### Easy
-  ### - Memory
-  ### - Variable
-  ### - Function
-  ### - Pointer
+  ###-Memory
+  ###-Variable
+  ###-Function
+  ###-Pointer
 ]
 .right-column[
 To do...
@@ -84,11 +88,11 @@ To do...
 ---
 .left-column[
   ### Easy
-  ### - Memory
-  ### - Variable
-  ### - Function
-  ### - Pointer
-  ### - Struct 
+  ###-Memory
+  ###-Variable
+  ###-Function
+  ###-Pointer
+  ###-Struct 
 ]
 .right-column[
 To do...
@@ -97,12 +101,12 @@ To do...
 ---
 .left-column[
   ### Easy
-  ### - Memory
-  ### - Variable
-  ### - Function
-  ### - Pointer
-  ### - Struct
-  ### - Class
+  ###-Memory
+  ###-Variable
+  ###-Function
+  ###-Pointer
+  ###-Struct
+  ###-Class
 ]
 .right-column[
 To do...
@@ -111,13 +115,13 @@ To do...
 ---
 .left-column[
   ### Easy
-  ### - Memory
-  ### - Variable
-  ### - Function
-  ### - Pointer
-  ### - Struct
-  ### - Class
-  ### - Binary
+  ###-Memory
+  ###-Variable
+  ###-Function
+  ###-Pointer
+  ###-Struct
+  ###-Class
+  ###-Binary
 ]
 .right-column[
 To do...
@@ -125,24 +129,126 @@ To do...
 
 ---
 class: center, middle
-# Slightly more specific
+# Medium 
 
 Stuff
 
 ---
-# Slightly more specific
-
-* Hexidecimal
+.left-column[
+  ### Medium
+]
+.right-column[
+* Hex
 * Call stack
 * Stack
 * Heap
-* Base 2 Base 16
-* Floating point
-* Template
+* Base 2 and base 16
+* Float
 * Compiler
-* Handle
-* Interface
+* Memory
+]
 
+---
+.left-column[
+  ### Medium
+  ###-Hex
+]
+.right-column[
+* Call stack
+* Stack
+* Heap
+* Base 2/16
+* Float
+* Compiler
+* Memory
+]
+
+---
+.left-column[
+  ### Medium
+  ###-Hex
+  ###-Call stack
+]
+.right-column[
+* Stack
+* Heap
+* Base 2/16
+* Float
+* Compiler
+* Memory
+]
+
+---
+.left-column[
+  ### Medium
+  ###-Hex
+  ###-Call stack
+  ###-Stack
+]
+.right-column[
+* Heap
+* Base 2/16
+* Float
+* Compiler
+* Memory
+]
+
+---
+.left-column[
+  ### Medium
+  ###-Hex
+  ###-Call stack
+  ###-Stack
+  ###-Heap
+]
+.right-column[
+* Base 2/16
+* Float
+* Compiler
+* Memory
+]
+
+---
+.left-column[
+  ### Medium
+  ###-Hex
+  ###-Call stack
+  ###-Stack
+  ###-Heap
+  ###-Base 2/16
+]
+.right-column[
+* Float
+* Compiler
+]
+
+---
+.left-column[
+  ### Medium
+  ###-Hex
+  ###-Call stack
+  ###-Stack
+  ###-Heap
+  ###-Base 2/16
+  ###-Float
+]
+.right-column[
+* Compiler
+]
+
+---
+.left-column[
+  ### Medium
+  ###-Hex
+  ###-Call stack
+  ###-Stack
+  ###-Heap
+  ###-Base 2/16
+  ###-Float
+  ###-Compiler
+]
+.right-column[
+]
 ---
 class: center, middle
 # Complex
@@ -150,9 +256,123 @@ class: center, middle
 stuff
 
 ---
-# Complex
+.left-column[
+  ### Complex
+]
+.right-column[
+* Template
+* Handle
+* Interface
+* Stack Overflow
+* Memory Corruption
+* Memory Violation
+* Segfault / segmentation fault
+]
 
-* Stack overflow
-* Memory corruption
-* Access violation
-* Segfault Segmentation fault
+---
+.left-column[
+  ### Complex
+  ###-Template
+]
+.right-column[
+* Handle
+* Interface
+* Overflow
+* Corruption
+* Violation
+* Segfault
+]
+
+---
+.left-column[
+  ### Complex
+  ###-Template
+  ###-Handle
+]
+.right-column[
+* Interface
+* Overflow
+* Corruption
+* Violation
+* Segfault
+]
+
+---
+.left-column[
+  ### Complex
+  ###-Template
+  ###-Handle
+  ###-Interface
+]
+.right-column[
+* Overflow
+* Corruption
+* Violation
+* Segfault
+]
+
+---
+.left-column[
+  ### Complex
+  ###-Template
+  ###-Handle
+  ###-Interface
+  ###-Overflow
+]
+.right-column[
+* Corruption
+* Violation
+* Segfault
+]
+
+---
+.left-column[
+  ### Complex
+  ###-Template
+  ###-Handle
+  ###-Interface
+  ###-Overflow
+  ###-Corrupt
+]
+.right-column[
+* Violation
+* Segfault
+]
+
+---
+.left-column[
+  ### Complex
+  ###-Template
+  ###-Handle
+  ###-Interface
+  ###-Overflow
+  ###-Corrupt
+  ###-Violation
+]
+.right-column[
+* Segfault
+]
+
+---
+.left-column[
+  ### Complex
+  ###-Template
+  ###-Handle
+  ###-Interface
+  ###-Overflow
+  ###-Corrupt
+  ###-Violation
+  ###-Segfault
+]
+.right-column[
+]
+
+---
+class: center, middle
+# Questions?
+
+---
+class: center, middle
+# End
+
+Got back to the [presentations](http://nathanrosspowell.com/presentations/) home page.
