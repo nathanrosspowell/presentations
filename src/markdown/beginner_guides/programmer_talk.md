@@ -11,13 +11,20 @@ These are where the sldie notes go.
 # Intro
 
 This will be more like a giant cheat sheet than a structured lesson.
-This get some people up to speed on the words that programmers use but not everyone understands.
+This should get some people up to speed on the words that programmers use, but maybe not everyone understands them.
+
+Remeber, sometime it is hard to know what kind of technical knowlege other people have when you work with lots of different people on a daily basis.
+
+The p
+
 
 ---
 class: center, middle
 # Easy
 
-Easy
+The set of upcoming words are relatively easy to undersand.
+If you have never heard of them before do _not_ worry!
+They are easy to comprehend.
 
 ---
 .left-column[
@@ -41,6 +48,8 @@ Easy
 .right-column[
 This is RAM (Random Access Memory).
 Your computer probably has a lot of it!
+
+A computer 
 ]
 
 ---
