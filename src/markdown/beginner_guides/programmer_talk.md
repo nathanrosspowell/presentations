@@ -67,6 +67,7 @@ It is a named 'block' of something.
 
 Here we have named 'integers' AKA, whole numbers.
 ```cpp
+// C++ code.
 int variable = 1;
 int VARIABLE = 1 + 1;
 int _var = 3;
@@ -88,19 +89,35 @@ A variable name is a label on a piece of data.
   ###-Function
 ]
 .right-column[
-A function is a programming term for "manipulate this data like this".
-A function that runs once every second could update the data which stores the time of day:
+While variables are data, functions are groups of command.
+A function is a programming convention of grouping together and naming a set of commands, which you can then use multiple times.
+ Here is a trivial function, that does something which you dont want to type multiple times.
 
 ```cpp
-void UpdateFunction()
+// C++ code.
+int Money()
 {
-    timeOfDay.Add( 1 );
+    int moneyInBank = 1000;
+    int moneyInWallet = 50;
+    int moneyInPockets = 5;
+    return moneyInBank + moneyInWallet + moneyInPockets;
 }
 ```
+The 'Money' function can be used as many times as you like. In programmer talk we say that you 'call the function'
 
-Here we see the full definition of the a function named 'UpdateFunction'.
-We can also see a function called 'Add', but that function is being used (or being 'called').
-The definition of the function 'Add' is somewhere else in the program.
+```cpp
+// C++ code.
+int myMoney = Money(); // Calling the Money function and using it's return value
+```
+
+A function can also calculate something for you.
+```cpp
+// C++ code.
+int Addition(int x, int y)
+{
+    return x + y;
+}
+```
 ]
 
 ---
@@ -112,18 +129,14 @@ The definition of the function 'Add' is somewhere else in the program.
   ###-Pointer
 ]
 .right-column[
-In day to day terms a 'pointer' is an 'alias'.
-
-Just like "007" is an alias for James Bond, we can have an alias for a variable in a programming language.
-The alias is another name for the real deal, it is not clone of the information.
-Here is a C++ pointer which makes an alias for "timeOfDay"
+You can think of an pointer as an alias.
+Just as James Bond has the alias of "007", a variables can have an alias.
 
 ```cpp
-int* pointer = &timeOfDay;
+// C++ code.
+int* megaTimeOfDay = &timeOfDay; // A pointer to time of day, with a cooler name
 ```
-
-The '*' means pointer.
-The '&' means 'get the memory address for' the variable.
+(The '*' means pointer, the '&' means 'get the memory address for' the variable. Don't worry about it.)
 
 Variables are a name we give data.
 The variable and any pointers to it will resolve to be the same piece of data in memory.
