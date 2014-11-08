@@ -108,7 +108,7 @@ int Money()
 The 'Money' function can be used as many times as you like. In programmer talk we say that you 'call the function'.
 
 ```cpp
-int myMoney = Money(); // Calling 'Money' and storing it's return value
+int myMoney = Money(); // Calling 'Money'
 ```
 ]
 ---
@@ -192,11 +192,11 @@ A class restricts access to the variables it contains.
 ```cpp
 class Time
 {
-public:
+*public:
     int hours;
-protected;
+*protected;
     int minutes;
-private:
+*private:
     int seconds;
 };
 ```
@@ -267,16 +267,19 @@ These terms are a step above the foundations of programming in the previous sect
 
 Imagine a world where people have 16 fingers, this is how they 'count'
 
-  0   1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
-  10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F
+    0   1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
+    10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F
+    20 22 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F
 
-|      | Decimal             | Hexidecimal         |
-|------|---------------------|---------------------|
-| 0001 | 1 * 1 = 1           | 1 * 1 = 1           |
-| 0010 | 1* 10 = 10          | 1 * 16 = 16         |
-| 0100 | 10* 10 = 100        | 16 * 16 = 256       |
-| 1000 | 10 * 10 * 10 = 1000 | 16 * 16 * 16 = 4096 |
-|      |                     |                     |
+Conversion table:
+
+    | Bits | Decimal             | Hexidecimal         |
+    |======|=====================|=====================|
+    | 0001 | 1 * 1 = 1           | 1 * 1 = 1           |
+    | 0010 | 1* 10 = 10          | 1 * 16 = 16         |
+    | 0100 | 10* 10 = 100        | 16 * 16 = 256       |
+    | 1000 | 10 * 10 * 10 = 1000 | 16 * 16 * 16 = 4096 |
+    |      |                     |                     |
 
 ]
 
@@ -397,7 +400,7 @@ stuff
 
 ---
 .left-column[
-  ### Complex
+  ### Hard
 ]
 .right-column[
 * Template
@@ -411,7 +414,7 @@ stuff
 
 ---
 .left-column[
-  ### Complex
+  ### Hard
   ###-Template
 ]
 .right-column[
@@ -422,7 +425,7 @@ It can mean lots of things.
 
 ---
 .left-column[
-  ### Complex
+  ### Hard
   ###-Template
   ###-Handle
 ]
@@ -434,7 +437,7 @@ A pointer with extra features.
 
 ---
 .left-column[
-  ### Complex
+  ### Hard
   ###-Template
   ###-Handle
   ###-Interface
@@ -447,7 +450,7 @@ Like a user interface.
 
 ---
 .left-column[
-  ### Complex
+  ### Hard
   ###-Template
   ###-Handle
   ###-Interface
@@ -461,7 +464,7 @@ Bad things
 
 ---
 .left-column[
-  ### Complex
+  ### Hard
   ###-Template
   ###-Handle
   ###-Interface
@@ -476,7 +479,7 @@ When something edited the wrong memory.
 
 ---
 .left-column[
-  ### Complex
+  ### Hard
   ###-Template
   ###-Handle
   ###-Interface
@@ -490,7 +493,7 @@ When something edited the wrong memory.
 
 ---
 .left-column[
-  ### Complex
+  ### Hard
   ###-Template
   ###-Handle
   ###-Interface
