@@ -3,7 +3,7 @@ class: center, middle
 
 By Nathan Ross Powell
 
-
+Source: [programmer_talk.md](https://github.com/nathanrosspowell/presentations/blob/master/src/markdown/beginner_guides/programmer_talk.md)
 ???
 
 These are where the slide notes go.
@@ -11,7 +11,7 @@ These are where the slide notes go.
 ---
 # Intro
 
-The information here should get some people up to speed on the words that programmers use all the time.
+The information here should get everyone up to speed on the words that programmers use all the time.
 
 These slides will be more like a giant cheat sheet than a structured lesson.
 
@@ -19,13 +19,15 @@ It's good to have a general idea of what these words and concepts mean, but don'
 
 ---
 class: center, middle
-# Easy
+# Easy Topics
 
-The set of upcoming words are relatively easy to explain in a short sentence.
+The set of upcoming words are relatively easy to explain in a few short sentences.
 If you have never heard of them before do _not_ worry!
 
-You are not going to become an expert, but you will be a bit more up to speed.
+You are not going to become an expert in one hour but you will have some kind of basic understanding (hopefully)!
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -41,6 +43,8 @@ You are not going to become an expert, but you will be a bit more up to speed.
 * Binary
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -54,8 +58,12 @@ Your computer probably has a lot of it!
 
 A computers memory is where currently executing programs live.
 Whereas the hard drive is where _all_ computer programs (`.exe` files) live.
+
+
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -66,7 +74,7 @@ Whereas the hard drive is where _all_ computer programs (`.exe` files) live.
 # Variable/Variables
 
 The basic building block of any computer program.
-It is a named 'block' of something.
+It is a named container of 'something'.
 
 Here we have named 'integers' AKA, whole numbers.
 ```cpp
@@ -79,9 +87,11 @@ int and_so_on = 5 + 1;
 int timeOfDay = 7;
 ```
 A variable is the name for a piece of data, which is understandable to humans!
-
-A variable name is a label on a piece of data.
+Giving variables a good name is a daily struggle for programmers.
 ]
+
+???
+Notes: ... 
 
 ---
 .left-column[
@@ -111,6 +121,8 @@ The 'Money' function can be used as many times as you like. In programmer talk w
 int myMoney = Money(); // Calling 'Money'
 ```
 ]
+???
+Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -139,6 +151,8 @@ _(The '*' means pointer, the '&' means 'get the memory address for' the variable
 
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -172,6 +186,8 @@ Time timeOfDay;
 _(That form of code is allowed, but it is not great. You will learn why later)_
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -203,6 +219,8 @@ class Time
 `public` variables can be accessed anywhere. `protected` and `private` are more restrive.
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -234,6 +252,8 @@ Instead of counting to 10 before using another digit to represent the number, yo
 You will rarely use binary numbers directly in code.
 ]
 
+???
+Notes: ... 
 ---
 class: center, middle
 # More Technical Terms
@@ -241,6 +261,8 @@ class: center, middle
 Now we move into trickier territory.
 These terms are a step above the foundations of programming in the previous section.
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -257,6 +279,8 @@ These terms are a step above the foundations of programming in the previous sect
 * Memory
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -283,6 +307,8 @@ Conversion table:
 
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -312,7 +338,7 @@ In the example stack, function 2 calls 3 and 4 before it ends.
 	
 ]
 ???
-Notes:
+Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -335,6 +361,8 @@ Memory leaks do not come from variables on the stack.
 But, you will have trouble if you return pointers to things on the stack!
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -360,6 +388,8 @@ You don't have to worry about memory leaks in C#.
 
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -387,6 +417,8 @@ _(I don't know of any use for Base 99)_
     
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -409,6 +441,8 @@ float speedModifier = 1.5f;
 
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -430,12 +464,16 @@ The program that turns you code into it's own program.
 * Clang
 
 ]
+???
+Notes: ... 
 ---
 class: center, middle
 # Complex
 
 stuff
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -450,6 +488,8 @@ stuff
 * Segfault / segmentation fault
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -461,6 +501,8 @@ stuff
 It can mean lots of things.
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -473,6 +515,8 @@ It can mean lots of things.
 A pointer with extra features.
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -486,6 +530,8 @@ A pointer with extra features.
 Like a user interface.
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -500,6 +546,8 @@ Like a user interface.
 Bad things
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -515,6 +563,8 @@ Bad things
 When something edited the wrong memory.
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -529,6 +579,8 @@ When something edited the wrong memory.
 # Access Violation
 ]
 
+???
+Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -547,12 +599,19 @@ Trying to use a null pointer.
 ]
 
 
+???
+Notes: ... 
 ---
 class: center, middle
 # Questions?
 
+???
+Notes: ... 
 ---
 class: center, middle
 # End
 
 Got back to the [presentations](http://nathanrosspowell.com/presentations/) home page.
+
+???
+Notes: ... 
