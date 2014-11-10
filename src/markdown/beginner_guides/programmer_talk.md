@@ -293,7 +293,26 @@ Conversion table:
 # Call Stack
 
 The 'stack' of 'calls'...
+
+A stack is a first on, last off concept.
+
+	1   1st push
+	12  2nd push
+	123 3rd push
+	12  1st pop
+	124 4th push
+	12  2nd pop
+	1   3rd pop
+	    4th pop
+
+A function gets added to the stack when you use it (call it).
+It gets removed when the function ends.
+
+In the example stack, function 2 calls 3 and 4 before it ends.
+	
 ]
+???
+Notes:
 ---
 .left-column[
   ### Medium
@@ -303,9 +322,17 @@ The 'stack' of 'calls'...
 ]
 .right-column[
 
-# Stack
+# The Stack
 
-Where nice ordered things live.
+The variabls that a function creates all live on their 'The Stack'.
+While our Call Stack is a stack of functions, The Stack is a stack of memory addresses.
+
+As a function executes, each variable gets added to the stack.
+When the function finishes, they all get 'popped' off as they're not needed.
+This happens in the order you expect - first on, last off.
+
+Memory leaks do not come from variables on the stack.
+But, you will have trouble if you return pointers to things on the stack!
 ]
 
 ---
@@ -317,9 +344,20 @@ Where nice ordered things live.
   ###-Heap
 ]
 .right-column[
-# Heap
+# The Heap
 
-Where random stuff lives
+The Heap is a place where variables live also, but it doesn't work the same way.
+
+If you make a variable on The Heap, it will stay there until you decided to remove it.
+The way to do this is `C++` is with the `new` and `delete` keywords.
+
+The Heap is where memory leaks happen.
+Make a new variable on The Heap and you will get a pointer to it.
+If you loose that pointer (it goes out of scope, you set the pointer to be another value, etc) then there is NO WAY to remove the variable.
+
+In C# the 'new' keyword is very different.
+You don't have to worry about memory leaks in C#.
+
 ]
 
 ---
