@@ -129,7 +129,7 @@ class: center, middle
 
 By Nathan Ross Powell
 
-Source: [programmer_talk.md](https://github.com/nathanrosspowell/presentations/blob/master/src/markdown/beginner_guides/programmer_talk.md)
+
 ???
 
 These are where the slide notes go.
@@ -137,7 +137,7 @@ These are where the slide notes go.
 ---
 # Intro
 
-The information here should get everyone up to speed on the words that programmers use all the time.
+The information here should get some people up to speed on the words that programmers use all the time.
 
 These slides will be more like a giant cheat sheet than a structured lesson.
 
@@ -145,15 +145,13 @@ It's good to have a general idea of what these words and concepts mean, but don'
 
 ---
 class: center, middle
-# Easy Topics
+# Easy
 
-The set of upcoming words are relatively easy to explain in a few short sentences.
+The set of upcoming words are relatively easy to explain in a short sentence.
 If you have never heard of them before do _not_ worry!
 
-You are not going to become an expert in one hour but you will have some kind of basic understanding (hopefully)!
+You are not going to become an expert, but you will be a bit more up to speed.
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -169,8 +167,6 @@ Notes: ...
 * Binary
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -186,8 +182,6 @@ A computers memory is where currently executing programs live.
 Whereas the hard drive is where _all_ computer programs (`.exe` files) live.
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -198,7 +192,7 @@ Notes: ...
 # Variable/Variables
 
 The basic building block of any computer program.
-It is a named container of 'something'.
+It is a named 'block' of something.
 
 Here we have named 'integers' AKA, whole numbers.
 ```cpp
@@ -211,11 +205,9 @@ int and_so_on = 5 + 1;
 int timeOfDay = 7;
 ```
 A variable is the name for a piece of data, which is understandable to humans!
-Giving variables a good name is a daily struggle for programmers.
-]
 
-???
-Notes: ... 
+A variable name is a label on a piece of data.
+]
 
 ---
 .left-column[
@@ -245,8 +237,6 @@ The 'Money' function can be used as many times as you like. In programmer talk w
 int myMoney = Money(); // Calling 'Money'
 ```
 ]
-???
-Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -275,8 +265,6 @@ _(The '*' means pointer, the '&' means 'get the memory address for' the variable
 
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -310,8 +298,6 @@ Time timeOfDay;
 _(That form of code is allowed, but it is not great. You will learn why later)_
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -343,8 +329,6 @@ class Time
 `public` variables can be accessed anywhere. `protected` and `private` are more restrive.
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Easy
@@ -376,8 +360,6 @@ Instead of counting to 10 before using another digit to represent the number, yo
 You will rarely use binary numbers directly in code.
 ]
 
-???
-Notes: ... 
 ---
 class: center, middle
 # More Technical Terms
@@ -385,8 +367,6 @@ class: center, middle
 Now we move into trickier territory.
 These terms are a step above the foundations of programming in the previous section.
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -403,8 +383,6 @@ Notes: ...
 * Memory
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -431,8 +409,6 @@ Conversion table:
 
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -443,9 +419,21 @@ Notes: ...
 # Call Stack
 
 The 'stack' of 'calls'...
+
+A stack is a first on, last off concept.
+
+	1   1st add (push)
+	12  2nd push
+	123 3rd push
+	12  1st remove (pop)
+	124 4th push
+	12  2nd pop
+	1   3rd pop
+
+A function gets added to the stack when you use it (call it).
+It gets removed when the function ends.
+	
 ]
-???
-Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -460,8 +448,6 @@ Notes: ...
 Where nice ordered things live.
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -476,8 +462,6 @@ Notes: ...
 Where random stuff lives
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -505,8 +489,6 @@ _(I don't know of any use for Base 99)_
     
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -529,8 +511,6 @@ float speedModifier = 1.5f;
 
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Medium
@@ -552,16 +532,12 @@ The program that turns you code into it's own program.
 * Clang
 
 ]
-???
-Notes: ... 
 ---
 class: center, middle
 # Complex
 
 stuff
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -576,8 +552,6 @@ Notes: ...
 * Segfault / segmentation fault
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -589,8 +563,6 @@ Notes: ...
 It can mean lots of things.
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -603,8 +575,6 @@ Notes: ...
 A pointer with extra features.
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -618,8 +588,6 @@ Notes: ...
 Like a user interface.
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -634,8 +602,6 @@ Notes: ...
 Bad things
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -651,8 +617,6 @@ Notes: ...
 When something edited the wrong memory.
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -667,8 +631,6 @@ Notes: ...
 # Access Violation
 ]
 
-???
-Notes: ... 
 ---
 .left-column[
   ### Hard
@@ -687,22 +649,15 @@ Trying to use a null pointer.
 ]
 
 
-???
-Notes: ... 
 ---
 class: center, middle
 # Questions?
 
-???
-Notes: ... 
 ---
 class: center, middle
 # End
 
 Got back to the [presentations](http://nathanrosspowell.com/presentations/) home page.
-
-???
-Notes: ... 
 
   </textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
