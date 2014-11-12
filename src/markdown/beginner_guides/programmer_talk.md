@@ -439,6 +439,9 @@ Maybe you know it as a number with a decimal point.
 float speedModifier = 1.5f;
 ```
 
+Technically, a float is a representation of the a number.
+There can only be 6 significant digits in the number.
+
 ]
 
 ???
@@ -459,26 +462,31 @@ Notes: ...
 
 The program that turns you code into it's own program.
 
-* MSVC
-* GCC
-* Clang
+These are the most common ones for C++
+* MSVC - Microsoft Visual Compiler
+* GCC - GNU Compiler Collection
+* Clang - C Language Compiler
 
+C# exsists mainly on the Windows platform, but alternative free compilers do exists.
+Unity uses the Mono project which has its own compiler.
 ]
 ???
 Notes: ... 
 ---
 class: center, middle
-# Complex
+# Complex Topics
 
-stuff
+
+Okay, these are harder to understand but you are likely to hear the terms being thrown around when programmers are about.
 
 ???
-Notes: ... 
+Notes: ... '
 ---
 .left-column[
   ### Hard
 ]
 .right-column[
+# Complex  Topics
 * Template
 * Handle
 * Interface
@@ -498,7 +506,20 @@ Notes: ...
 .right-column[
 # Template
 
-It can mean lots of things.
+A template is a way to make a class which has other varaible types.
+Variable for the variabes!
+
+```cpp
+template< class T > class Container
+{
+public: 
+	T m_data;
+};
+```
+
+The `T` can be an `int` or a `char` or anything you like.
+
+In C# templates are called generics.
 ]
 
 ???
@@ -512,7 +533,9 @@ Notes: ...
 .right-column[
 # Handle
 
-A pointer with extra features.
+A handle is very close to a pointer in concept.
+
+A handle system is a way to add a level of redirection to a system.
 ]
 
 ???
@@ -527,7 +550,10 @@ Notes: ...
 .right-column[
 # Interface
 
-Like a user interface.
+
+If you want other people to use the systems in your code, you normally supply an interface.
+
+
 ]
 
 ???
