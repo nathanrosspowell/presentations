@@ -104,7 +104,7 @@ Giving variables a good name is a daily struggle for programmers.
 # Functions
 While variables are data, functions are groups of command.
 A function is a programming convention of grouping together and naming a set of commands, which you can then use multiple times.
- Here is a trivial function, that does something which you dont want to type multiple times.
+ Here is a trivial function, that does something which you don't want to type multiple times.
 
 ```cpp
 int Money()
@@ -219,7 +219,7 @@ class Time
     int seconds;
 };
 ```
-`public` variables can be accessed anywhere. `protected` and `private` are more restrive.
+`public` variables can be accessed anywhere. `protected` and `private` are more restricted.
 ]
 
 ???
@@ -292,7 +292,7 @@ Notes: ...
   ###-Hex
 ]
 .right-column[
-# Hexidecimal
+# Hexadecimal
 
 Imagine a world where people have 16 fingers, this is how they 'count'
 
@@ -302,7 +302,7 @@ Imagine a world where people have 16 fingers, this is how they 'count'
 
 Conversion table:
 
-    | Bits | Decimal             | Hexidecimal         |
+    | Bits | Decimal             | Hexadecimal         |
     |======|=====================|=====================|
     | 0001 | 1 * 1 = 1           | 1 * 1 = 1           |
     | 0010 | 1* 10 = 10          | 1 * 16 = 16         |
@@ -313,7 +313,7 @@ Conversion table:
 ]
 
 ???
-(Wikipedia link to hexidecimal)[http://en.wikipedia.org/wiki/Hexadecimal]
+(Wikipedia link to hexadecimal)[http://en.wikipedia.org/wiki/Hexadecimal]
 
 ---
 .left-column[
@@ -357,7 +357,7 @@ In the example stack, function 2 calls 3 and 4 before it ends.
 
 # The Stack
 
-The variabls that a function creates all live on their 'The Stack'.
+The variables that a function creates all live on their 'The Stack'.
 While our Call Stack is a stack of functions, The Stack is a stack of memory addresses.
 
 As a function executes, each variable gets added to the stack.
@@ -411,7 +411,7 @@ You don't have to worry about memory leaks in C#.
 .right-column[
 # Base 2 and Base 16
 
-Another name for Binary and Hexidecimal.
+Another name for Binary and Hexadecimal.
 The 
 
     Base  2 -> 0010 =  2  - 0, 1
@@ -420,7 +420,7 @@ The
     Base 99 -> 0010 = 99  - 0, 1, ... '98', '99'
     
 Here you can see that any base can be used.
-It is very inconvinent that we can't express '10' in one numerical digit, that is why Hexidecimal uses 'A'.
+It is very inconvenient that we can't express '10' in one numerical digit, that is why Hexadecimal uses 'A'.
 
 _(I don't know of any use for Base 99)_
     
@@ -523,8 +523,8 @@ Notes: ...
 .right-column[
 # Template
 
-A template is a way to make a class which has other varaible types.
-Variable for the variabes!
+A template is a way to make a class which has other variable types.
+Variable for the variables!
 
 ```cpp
 template< class T > class Container
@@ -554,8 +554,8 @@ In C# templates are called generics.
 A handle is very close to a pointer in concept.
 It is a abstract reference (alias) to a resource in your program.
 
-When you use a handle you don't have direct access to the resouce.
-This is benifitial if you want to provide restricited (and safer) functionality.
+When you use a handle you don't have direct access to the resource.
+This is beneficial if you want to provide restricted (and safer) functionality.
 
 An 'int' can be used as an handle.
 Think of a sports team - each player has a name, but you can use their jersey number to interact with them:
@@ -580,7 +580,7 @@ _(A handle is a software construct. It is not a part of the programming language
 There are many uses for this word, here are some examples:
 * Hardware - a keyboard and mouse are an interface to the computer
 * Software - The icons on your phone is a 'user interface'
-* Programming language - A way to specifyabstract rules for object usage
+* Programming language - A way to specify abstract rules for object usage
 
 A 'clickable' interface.
 An object must implement these functions for other code to be able to see it as a 'clickable' object.
