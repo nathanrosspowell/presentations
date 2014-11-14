@@ -624,7 +624,6 @@ Notes: ... '
 * Interface
 * Stack Overflow
 * Memory Corruption
-* Memory Violation
 * Segfault / segmentation fault
 ]
 
@@ -740,7 +739,7 @@ char lastLetter = 'A';
     0   1   2   3   4   
     |X  |X  |X  |A  |Z  |
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-    try and set 'initials' to 'Bobby'
+    // try and set 'initials' to 'Bobby'
     0   1   2   3   4   
     |B  |o  |b  |b  |y  |
     ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
@@ -760,10 +759,17 @@ char lastLetter = 'A';
 .right-column[
 # Memory Corruption
 
-When something edited the wrong memory.
+The buffer overflow is one type of memory corruption - running passed the memory location you are meant to be using.
+
+If you have a pointer to memory, then that memory gets used for an object of a different type... using that original pointer is going to do crazy things to memory.
+_Hopefully_ when something like that happens the program crashes instantly, otherwise you have to wait for the corruption to manifest as a bug.
+At that point it is hard to know what caused the corruption.
+
+This is one of the hardest class of bugs to track down and fix!
 ]
 
 ???
+(Wikipedia link to memory corruption)[http://en.wikipedia.org/wiki/Memory_corruption]
 Notes: ... 
 ---
 .left-column[
@@ -773,33 +779,28 @@ Notes: ...
   ###-Interface
   ###-Overflow
   ###-Corrupt
-  ###-Violation
-]
-.right-column[
-# Access Violation
-]
-
-???
-Notes: ... 
----
-.left-column[
-  ### Hard
-  ###-Template
-  ###-Handle
-  ###-Interface
-  ###-Overflow
-  ###-Corrupt
-  ###-Violation
   ###-Segfault
 ]
 .right-column[
 # Segmentation Fault
 
-Trying to use a null pointer.
+This is a technical term for an _access violation_.
+
+When the program tries to use memory that it shouldn't, the operating system running the program raises a segfault - this normally triggers the termination of a program.
+
+A 'null pointer crash/dereference' is the classic cause of this.
+This is a very common error (doh), but it is normally trivial to fix with a _pointer check_
+
+```cpp
+Player* playerPointer = NULL;
+if ( playerPointer ) // same as 'playerPointer != NULL'
+{
+    // poitner can't be NULL
+    playerPointer->JumpAround();
+}
 ]
-
-
 ???
+(Wikipedia link to segfault)[http://en.wikipedia.org/wiki/Segmentation_fault]
 Notes: ... 
 ---
 class: center, middle
