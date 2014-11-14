@@ -568,6 +568,12 @@ float speedModifier = 1.5f;
 Technically, a float is a representation of the a number.
 There can only be 6 significant digits in the number.
 
+A `double` is a decimal number which far more precise, but it uses more memory.
+
+```cpp
+double preciceSpeedModifier = 1.5; // no 'f' needed
+```
+
 ]
 
 ???
@@ -660,12 +666,21 @@ Notes: ...
 # Handle
 
 A handle is very close to a pointer in concept.
+It is a abstract reference (alias) to a resource in your program.
 
-A handle system is a way to add a level of redirection to a system.
+When you use a handle you don't have direct access to the resouce.
+This is benifitial if you want to provide restricited (and safer) functionality.
+
+An 'int' can be used as an handle.
+Think of a sports team - each player has a name, but you can use their jersey number to interact with them:
+
+    I want to substitute #7 for #11
+
+__(A handle is a software construct. It is not a part of the programming language)__
 ]
 
 ???
-Notes: ... 
+(Wikipedia link for handles)[http://en.wikipedia.org/wiki/Handle_(computing)]
 ---
 .left-column[
   ### Hard
@@ -676,14 +691,28 @@ Notes: ...
 .right-column[
 # Interface
 
+There are many uses for this word, here are some examples:
+* Hardware - a keyboard and mouse are an interface to the computer
+* Software - The icons on your phone is a 'user interface'
+* Programming language - A way to specifyabstract rules for object usage
 
-If you want other people to use the systems in your code, you normally supply an interface.
+A 'clickable' interface.
+An object must implement these functions for other code to be able to see it as a 'clickable' object.
+```cpp
+class ClickableInterface
+{
+    virtual void OnClick( int xPosition, int yPosition ) = 0;
+    virtual void OnDoubleClick( int xPosition, int yPosition ) = 0;
+    virtual void OnHold( int xPosition, int yPosition ) = 0;
+};
+```
+__(This is `C++` syntax for a "pure virtual function")__
 
 
 ]
 
 ???
-Notes: ... 
+(Wikipedia link for interfaces)[http://en.wikipedia.org/wiki/Interface_(computing)]
 ---
 .left-column[
   ### Hard
@@ -695,11 +724,30 @@ Notes: ...
 .right-column[
 # Buffer Overflow
 
-Bad things
+A buffer is a name for consecutive blocks of memory.
+An array one type of buffer.
+A file on the computer is another.
+
+In `C++` you can easily write too much into a buffer.
+If you have an array with space for three characters (player initials) and you try and a full name into that list, the extra letters `stomp` over the memory directly after the array
+
+```cpp
+char initials[3] = { 'X', 'X', 'X' };
+char firstLetter = 'A';
+char lastLetter = 'A';
+```
+
+    0   1   2   3   4   
+    |X  |X  |X  |A  |Z  |
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+    try and set 'initials' to 'Bobby'
+    0   1   2   3   4   
+    |B  |o  |b  |b  |y  |
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to buffer overflow)[http://en.wikipedia.org/wiki/Buffer_overflow]
 ---
 .left-column[
   ### Hard
