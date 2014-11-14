@@ -63,7 +63,7 @@ Whereas the hard drive is where _all_ computer programs (`.exe` files) live.
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to memory)[http://en.wikipedia.org/wiki/Computer_memory]
 ---
 .left-column[
   ### Easy
@@ -91,7 +91,7 @@ Giving variables a good name is a daily struggle for programmers.
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to variables)[http://en.wikipedia.org/wiki/Variable_(computer_science)]
 
 ---
 .left-column[
@@ -122,7 +122,8 @@ int myMoney = Money(); // Calling 'Money'
 ```
 ]
 ???
-Notes: ... 
+(Wikipedia link to functions)[http://en.wikipedia.org/wiki/Function_object]
+
 ---
 .left-column[
   ### Easy
@@ -152,7 +153,8 @@ _(The '*' means pointer, the '&' means 'get the memory address for' the variable
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to pointers)[http://en.wikipedia.org/wiki/Pointer_(computer_programming)]
+
 ---
 .left-column[
   ### Easy
@@ -187,7 +189,8 @@ _(That form of code is allowed, but it is not great. You will learn why later)_
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to struct and classes)[http://en.wikipedia.org/wiki/C%2B%2B_classes]
+
 ---
 .left-column[
   ### Easy
@@ -220,7 +223,8 @@ class Time
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to struct and classes)[http://en.wikipedia.org/wiki/C%2B%2B_classes]
+
 ---
 .left-column[
   ### Easy
@@ -253,7 +257,8 @@ You will rarely use binary numbers directly in code.
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to binary)[http://en.wikipedia.org/wiki/Binary]
+
 ---
 class: center, middle
 # More Technical Terms
@@ -308,7 +313,8 @@ Conversion table:
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to hexidecimal)[http://en.wikipedia.org/wiki/Hexadecimal]
+
 ---
 .left-column[
   ### Medium
@@ -338,7 +344,8 @@ In the example stack, function 2 calls 3 and 4 before it ends.
 	
 ]
 ???
-Notes: ... 
+(Wikipedia link to call stack)[http://en.wikipedia.org/wiki/Call_stack]
+
 ---
 .left-column[
   ### Medium
@@ -362,7 +369,8 @@ But, you will have trouble if you return pointers to things on the stack!
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to stack)[http://en.wikipedia.org/wiki/Stack_(abstract_data_type)]
+ 
 ---
 .left-column[
   ### Medium
@@ -389,7 +397,8 @@ You don't have to worry about memory leaks in C#.
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to heap)[http://en.wikipedia.org/wiki/Memory_management#HEAP]
+ 
 ---
 .left-column[
   ### Medium
@@ -418,7 +427,8 @@ _(I don't know of any use for Base 99)_
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to base)[http://en.wikipedia.org/wiki/Radix]
+ 
 ---
 .left-column[
   ### Medium
@@ -442,10 +452,17 @@ float speedModifier = 1.5f;
 Technically, a float is a representation of the a number.
 There can only be 6 significant digits in the number.
 
+A `double` is a decimal number which far more precise, but it uses more memory.
+
+```cpp
+double preciceSpeedModifier = 1.5; // no 'f' needed
+```
+
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to float)[http://en.wikipedia.org/wiki/Floating_point]
+  
 ---
 .left-column[
   ### Medium
@@ -471,7 +488,8 @@ C# exsists mainly on the Windows platform, but alternative free compilers do exi
 Unity uses the Mono project which has its own compiler.
 ]
 ???
-Notes: ... 
+(Wikipedia link to compiler)[http://en.wikipedia.org/wiki/Compiler]
+ 
 ---
 class: center, middle
 # Complex Topics
@@ -480,7 +498,7 @@ class: center, middle
 Okay, these are harder to understand but you are likely to hear the terms being thrown around when programmers are about.
 
 ???
-Notes: ... '
+
 ---
 .left-column[
   ### Hard
@@ -492,7 +510,6 @@ Notes: ... '
 * Interface
 * Stack Overflow
 * Memory Corruption
-* Memory Violation
 * Segfault / segmentation fault
 ]
 
@@ -523,7 +540,8 @@ In C# templates are called generics.
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to template)[http://en.wikipedia.org/wiki/Template_(C%2B%2B)]
+ 
 ---
 .left-column[
   ### Hard
@@ -534,12 +552,21 @@ Notes: ...
 # Handle
 
 A handle is very close to a pointer in concept.
+It is a abstract reference (alias) to a resource in your program.
 
-A handle system is a way to add a level of redirection to a system.
+When you use a handle you don't have direct access to the resouce.
+This is benifitial if you want to provide restricited (and safer) functionality.
+
+An 'int' can be used as an handle.
+Think of a sports team - each player has a name, but you can use their jersey number to interact with them:
+
+    I want to substitute #7 for #11
+
+_(A handle is a software construct. It is not a part of the programming language)_
 ]
 
 ???
-Notes: ... 
+(Wikipedia link for handles)[http://en.wikipedia.org/wiki/Handle_(computing)]
 ---
 .left-column[
   ### Hard
@@ -550,14 +577,28 @@ Notes: ...
 .right-column[
 # Interface
 
+There are many uses for this word, here are some examples:
+* Hardware - a keyboard and mouse are an interface to the computer
+* Software - The icons on your phone is a 'user interface'
+* Programming language - A way to specifyabstract rules for object usage
 
-If you want other people to use the systems in your code, you normally supply an interface.
+A 'clickable' interface.
+An object must implement these functions for other code to be able to see it as a 'clickable' object.
+```cpp
+class ClickableInterface
+{
+    virtual void OnClick( int xPosition, int yPosition ) = 0;
+    virtual void OnDoubleClick( int xPosition, int yPosition ) = 0;
+    virtual void OnHold( int xPosition, int yPosition ) = 0;
+};
+```
+_(This is `C++` syntax for a "pure virtual function")_
 
 
 ]
 
 ???
-Notes: ... 
+(Wikipedia link for interfaces)[http://en.wikipedia.org/wiki/Interface_(computing)]
 ---
 .left-column[
   ### Hard
@@ -569,11 +610,30 @@ Notes: ...
 .right-column[
 # Buffer Overflow
 
-Bad things
+A buffer is a name for consecutive blocks of memory.
+An array one type of buffer.
+A file on the computer is another.
+
+In `C++` you can easily write too much into a buffer.
+If you have an array with space for three characters (player initials) and you try and a full name into that list, the extra letters `stomp` over the memory directly after the array
+
+```cpp
+char initials[3] = { 'X', 'X', 'X' };
+char firstLetter = 'A';
+char lastLetter = 'A';
+```
+
+    0   1   2   3   4   
+    |X  |X  |X  |A  |Z  |
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+    // try and set 'initials' to 'Bobby'
+    0   1   2   3   4   
+    |B  |o  |b  |b  |y  |
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 ]
 
 ???
-Notes: ... 
+(Wikipedia link to buffer overflow)[http://en.wikipedia.org/wiki/Buffer_overflow]
 ---
 .left-column[
   ### Hard
@@ -586,10 +646,17 @@ Notes: ...
 .right-column[
 # Memory Corruption
 
-When something edited the wrong memory.
+The buffer overflow is one type of memory corruption - running passed the memory location you are meant to be using.
+
+If you have a pointer to memory, then that memory gets used for an object of a different type... using that original pointer is going to do crazy things to memory.
+_Hopefully_ when something like that happens the program crashes instantly, otherwise you have to wait for the corruption to manifest as a bug.
+At that point it is hard to know what caused the corruption.
+
+This is one of the hardest class of bugs to track down and fix!
 ]
 
 ???
+(Wikipedia link to memory corruption)[http://en.wikipedia.org/wiki/Memory_corruption]
 Notes: ... 
 ---
 .left-column[
@@ -599,33 +666,29 @@ Notes: ...
   ###-Interface
   ###-Overflow
   ###-Corrupt
-  ###-Violation
-]
-.right-column[
-# Access Violation
-]
-
-???
-Notes: ... 
----
-.left-column[
-  ### Hard
-  ###-Template
-  ###-Handle
-  ###-Interface
-  ###-Overflow
-  ###-Corrupt
-  ###-Violation
   ###-Segfault
 ]
 .right-column[
 # Segmentation Fault
 
-Trying to use a null pointer.
+This is a technical term for an _access violation_.
+
+When the program tries to use memory that it shouldn't, the operating system running the program raises a segfault - this normally triggers the termination of a program.
+
+A 'null pointer crash/dereference' is the classic cause of this.
+This is a very common error (doh), but it is normally trivial to fix with a _pointer check_
+
+```cpp
+Player* playerPointer = NULL;
+if ( playerPointer ) // same as 'playerPointer != NULL'
+{
+    // poitner can't be NULL
+*   playerPointer->JumpAround();
+}
+```
 ]
-
-
 ???
+(Wikipedia link to segfault)[http://en.wikipedia.org/wiki/Segmentation_fault]
 Notes: ... 
 ---
 class: center, middle
