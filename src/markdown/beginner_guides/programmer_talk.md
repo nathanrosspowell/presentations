@@ -4,6 +4,7 @@ class: center, middle
 By Nathan Ross Powell
 
 Source: [programmer_talk.md](https://github.com/nathanrosspowell/presentations/blob/master/src/markdown/beginner_guides/programmer_talk.md)
+Webpage: [programmer_talk/index.html](http://nathanrosspowell.com/presentations/beginner_guides/programmer_talk/index.html)
 ???
 
 These are where the slide notes go.
@@ -63,7 +64,7 @@ Whereas the hard drive is where _all_ computer programs (`.exe` files) live.
 ]
 
 ???
-(Wikipedia link to memory)[http://en.wikipedia.org/wiki/Computer_memory]
+ttp://en.wikipedia.org/wiki/Computer_memory
 ---
 .left-column[
   ### Easy
@@ -91,7 +92,7 @@ Giving variables a good name is a daily struggle for programmers.
 ]
 
 ???
-(Wikipedia link to variables)[http://en.wikipedia.org/wiki/Variable_(computer_science)]
+http://en.wikipedia.org/wiki/Variable_(computer_science)
 
 ---
 .left-column[
@@ -122,7 +123,7 @@ int myMoney = Money(); // Calling 'Money'
 ```
 ]
 ???
-(Wikipedia link to functions)[http://en.wikipedia.org/wiki/Function_object]
+http://en.wikipedia.org/wiki/Function_object
 
 ---
 .left-column[
@@ -153,7 +154,7 @@ _(The '*' means pointer, the '&' means 'get the memory address for' the variable
 ]
 
 ???
-(Wikipedia link to pointers)[http://en.wikipedia.org/wiki/Pointer_(computer_programming)]
+http://en.wikipedia.org/wiki/Pointer_(computer_programming)
 
 ---
 .left-column[
@@ -189,7 +190,7 @@ _(That form of code is allowed, but it is not great. You will learn why later)_
 ]
 
 ???
-(Wikipedia link to struct and classes)[http://en.wikipedia.org/wiki/C%2B%2B_classes]
+http://en.wikipedia.org/wiki/C%2B%2B_classes
 
 ---
 .left-column[
@@ -223,7 +224,7 @@ class Time
 ]
 
 ???
-(Wikipedia link to struct and classes)[http://en.wikipedia.org/wiki/C%2B%2B_classes]
+http://en.wikipedia.org/wiki/C%2B%2B_classes
 
 ---
 .left-column[
@@ -257,7 +258,7 @@ You will rarely use binary numbers directly in code.
 ]
 
 ???
-(Wikipedia link to binary)[http://en.wikipedia.org/wiki/Binary]
+http://en.wikipedia.org/wiki/Binary
 
 ---
 class: center, middle
@@ -313,7 +314,7 @@ Conversion table:
 ]
 
 ???
-(Wikipedia link to hexadecimal)[http://en.wikipedia.org/wiki/Hexadecimal]
+http://en.wikipedia.org/wiki/Hexadecimal
 
 ---
 .left-column[
@@ -344,7 +345,7 @@ In the example stack, function 2 calls 3 and 4 before it ends.
 	
 ]
 ???
-(Wikipedia link to call stack)[http://en.wikipedia.org/wiki/Call_stack]
+http://en.wikipedia.org/wiki/Call_stack
 
 ---
 .left-column[
@@ -369,7 +370,7 @@ But, you will have trouble if you return pointers to things on the stack!
 ]
 
 ???
-(Wikipedia link to stack)[http://en.wikipedia.org/wiki/Stack_(abstract_data_type)]
+http://en.wikipedia.org/wiki/Stack_(abstract_data_type)
  
 ---
 .left-column[
@@ -397,7 +398,7 @@ You don't have to worry about memory leaks in C#.
 ]
 
 ???
-(Wikipedia link to heap)[http://en.wikipedia.org/wiki/Memory_management#HEAP]
+http://en.wikipedia.org/wiki/Memory_management#HEAP
  
 ---
 .left-column[
@@ -427,7 +428,7 @@ _(I don't know of any use for Base 99)_
 ]
 
 ???
-(Wikipedia link to base)[http://en.wikipedia.org/wiki/Radix]
+http://en.wikipedia.org/wiki/Radix
  
 ---
 .left-column[
@@ -461,7 +462,7 @@ double preciceSpeedModifier = 1.5; // no 'f' needed
 ]
 
 ???
-(Wikipedia link to float)[http://en.wikipedia.org/wiki/Floating_point]
+http://en.wikipedia.org/wiki/Floating_point
   
 ---
 .left-column[
@@ -488,7 +489,7 @@ C# exsists mainly on the Windows platform, but alternative free compilers do exi
 Unity uses the Mono project which has its own compiler.
 ]
 ???
-(Wikipedia link to compiler)[http://en.wikipedia.org/wiki/Compiler]
+http://en.wikipedia.org/wiki/Compiler
  
 ---
 class: center, middle
@@ -537,10 +538,15 @@ public:
 The `T` can be an `int` or a `char` or anything you like.
 
 In C# templates are called generics.
+
+```cpp
+Container<int> myIntegerData;
+```
+
 ]
 
 ???
-(Wikipedia link to template)[http://en.wikipedia.org/wiki/Template_(C%2B%2B)]
+http://en.wikipedia.org/wiki/Template_(C%2B%2B)
  
 ---
 .left-column[
@@ -566,7 +572,7 @@ _(A handle is a software construct. It is not a part of the programming language
 ]
 
 ???
-(Wikipedia link for handles)[http://en.wikipedia.org/wiki/Handle_(computing)]
+http://en.wikipedia.org/wiki/Handle_(computing)
 ---
 .left-column[
   ### Hard
@@ -598,7 +604,7 @@ _(This is `C++` syntax for a "pure virtual function")_
 ]
 
 ???
-(Wikipedia link for interfaces)[http://en.wikipedia.org/wiki/Interface_(computing)]
+http://en.wikipedia.org/wiki/Interface_(computing)
 ---
 .left-column[
   ### Hard
@@ -633,7 +639,7 @@ char lastLetter = 'A';
 ]
 
 ???
-(Wikipedia link to buffer overflow)[http://en.wikipedia.org/wiki/Buffer_overflow]
+http://en.wikipedia.org/wiki/Buffer_overflow
 ---
 .left-column[
   ### Hard
@@ -656,7 +662,7 @@ This is one of the hardest class of bugs to track down and fix!
 ]
 
 ???
-(Wikipedia link to memory corruption)[http://en.wikipedia.org/wiki/Memory_corruption]
+http://en.wikipedia.org/wiki/Memory_corruption
 Notes: ... 
 ---
 .left-column[
@@ -688,7 +694,7 @@ if ( playerPointer ) // same as 'playerPointer != NULL'
 ```
 ]
 ???
-(Wikipedia link to segfault)[http://en.wikipedia.org/wiki/Segmentation_fault]
+http://en.wikipedia.org/wiki/Segmentation_fault
 Notes: ... 
 ---
 class: center, middle
