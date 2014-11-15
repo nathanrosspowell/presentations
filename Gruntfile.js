@@ -16,10 +16,16 @@ module.exports = function(grunt) {
         concat: {
             main: {
                 files: {
-                    'build/beginner_guides/programmer_talk/index.html' : [
+                    // programmer_talk
+                    'build/beginner_guides/programmer_talk/presentation/index.html' : [
                         'src/remark/header.html',
-                        'src/markdown/beginner_guides/programmer_talk.md',
+                        'src/markdown/beginner_guides/programmer_talk/README.md',
                         'src/remark/footer.html' ],
+                    'build/beginner_guides/programmer_talk/index.html' : [
+                        'src/child_page/header.html',
+                        'src/markdown/beginner_guides/programmer_talk/index.html',
+                        'src/child_page/footer.html' ],
+                    // Old
                     'build/beginner_guides/language_syntax/index.html' : [
                         'src/remark/header.html',
                         'src/markdown/beginner_guides/language_syntax.md',
@@ -40,6 +46,7 @@ module.exports = function(grunt) {
                         'src/remark/header.html',
                         'src/markdown/beginner_guides/post_mortem.md',
                         'src/remark/footer.html' ],
+                    // Main Index.
                     'build/test/index.html' : [
                         'src/remark/header.html',
                         'src/markdown/test.md',
