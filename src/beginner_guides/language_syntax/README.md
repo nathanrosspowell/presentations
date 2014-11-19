@@ -192,7 +192,7 @@ Notes: ...
 .right-column[
 # Drawbacks To Using Class Hierarchies
 
-(The Diamond Problem)[http://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem] 
+[The Diamond Problem](http://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem)
 ]
 
 ???
@@ -239,9 +239,6 @@ Notes: ...
 
 ???
 Notes: ... 
-
----
-
 
 ---
 class: center, middle
