@@ -14,28 +14,48 @@ module.exports = function(grunt) {
             }
         },
         'compile-handlebars': {
-            main: {
+            programmer_talk: {
+                template: [
+                    'src/child_page/template.handlebars',
+                    'src/remark/header.handlebars',
+                ],
+                templateData: [
+                    'src/beginner_guides/programmer_talk/meta.json',
+                    'src/beginner_guides/programmer_talk/meta.json',
+                ],
+                output: [
+                    'build/beginner_guides/programmer_talk/index.html',
+                    'temp/beginner_guides/programmer_talk/presentation/index.html',
+                ],
+            },
+            language_syntax: {
                 template: [
                     'src/child_page/template.handlebars',
                     'src/remark/header.handlebars'
                 ],
                 templateData: [
-                    'src/beginner_guides/programmer_talk/meta.json',
-                    'src/beginner_guides/programmer_talk/meta.json'
+                    'src/beginner_guides/language_syntax/meta.json',
+                    'src/beginner_guides/language_syntax/meta.json'
                 ],
                 output: [
-                    'build/beginner_guides/programmer_talk/index.html',
-                    'temp/beginner_guides/programmer_talk/presentations/index.html'
+                    'build/beginner_guides/language_syntax/index.html',
+                    'temp/beginner_guides/language_syntax/presentation/index.html'
                 ],
             }
+
         },
         concat: {
             main: {
                 files: {
                     // programmer_talk
                     'build/beginner_guides/programmer_talk/presentation/index.html' : [
-                        'temp/beginner_guides/programmer_talk/presentations/index.html',
+                        'temp/beginner_guides/programmer_talk/presentation/index.html',
                         'src/beginner_guides/programmer_talk/README.md',
+                        'src/remark/footer.html' ],
+                    // language_syntax
+                    'build/beginner_guides/language_syntax/presentation/index.html' : [
+                        'temp/beginner_guides/language_syntax/presentation/index.html',
+                        'src/beginner_guides/language_syntax/README.md',
                         'src/remark/footer.html' ],
                     // Main Index.
                     'build/test/index.html' : [
@@ -45,7 +65,6 @@ module.exports = function(grunt) {
                 },
             }
         },
-
         'gh-pages': {
             main: {
                 options: {
@@ -61,7 +80,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-compile-handlebars');
     grunt.loadNpmTasks('grunt-gh-pages');
     // Default task: does everything except deployment
-    grunt.registerTask('default', ['copy', 'concat', 'compile-handlebars']);
+    grunt.registerTask('default', ['copy', 'compile-handlebars', 'concat' ]);
     // Deploy task: runs everything in order.
     grunt.registerTask('deploy', ['default', 'gh-pages']);
 };
