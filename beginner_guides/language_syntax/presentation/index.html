@@ -136,21 +136,38 @@ Webpage: [language_syntax/index.html](http://nathanrosspowell.com/presentations/
 These are where the slide notes go.
 
 ---
-class: center, middle
+.left-column[
+  ### Refresh
+]
+.right-column[
+
 # Quick Pit Stop Tour
 
 Let's go over the basics.
-
+* Quiz 1
+* Quiz 2
+* Quiz 3
+]
 
 ---
+.left-column[
+  ### Refresh
+  ### 1.
+]
+.right-column[
+
 # These are... 
 
 ```cs
 int aSpecialNumber = 42;
+
 char endOfTheAlphabet = 'Z';
+
 string month = "November";
+
 List<int> countDown = new List<int>() { 2, 3, 4, 5 };
 ```
+]
 ???
 These are variables, each with there own 'type'
 int - whole numbers
@@ -159,25 +176,79 @@ string - a list of characters
 List<T> - a list of 'T', which can be any 'type'
 
 ---
-# These are... 
+
+.left-column[
+  ### Refresh
+  ### 1.
+  ### 2.
+]
+.right-column[
+# And these... 
 
 ```cs
-string GetName() { return "Bob"; }
-int Money() { return 3 + 54 + 77; }
+string GetName() 
+{ 
+    return "Bob";
+}
+
+int Money() 
+{ 
+    return 3 + 54 + 77;
+}
+
 void DoStuff
 {
     TestA();
     MakeB( SetupC( 3 ) );
 }
 ```
+]
 ???
 These are all functions
 
 ---
+
+.left-column[
+  ### Refresh
+  ### 1.
+  ### 2.
+  ### 3.
+]
+.right-column[
+# Finally...
+
+```cs
+class Obvious // 1
+{
+    private string _name = "Captain"; // 2
+    public int Multiplier { get; set; } // 3 (C# specific) 
+}
+
+class Container<T> // 4
+{
+    private T _myData; // 5
+    void T Data // 6
+    get 
+    { 
+        return _myData; 
+    }
+    set 
+    {
+        name = value; 
+    }
+}
+```
+]
+???
+These are all functions
+
+---
+
 class: center, middle
 # Class Hierarchies
 
 We will look over the principles of OOP* to describe class hierarchies.
+You will use class hierarchies to organise functionality and avoid duplication of code, even if you don't use the OOP methodology.
 
 _*Object Oriented Programming_
 
@@ -203,10 +274,7 @@ Notes: ...
   ### Definition
 ]
 .right-column[
-* Classic Example
-* Advantages
-* Drawbacks
-* Other solutions
+# Definition of OOP
 ]
 
 ???
@@ -219,9 +287,7 @@ Notes: ...
   ### Example
 ]
 .right-column[
-* Advantages
-* Drawbacks
-* Alternatice Solutions
+# Classic OOP Use Case
 ]
 
 ???
@@ -235,8 +301,7 @@ Notes: ...
   ### Advantages
 ]
 .right-column[
-* Drawbacks
-* Other solutions
+# Advantages of Class Hierarchies
 ]
 
 ???
@@ -251,7 +316,9 @@ Notes: ...
   ### Drawbacks
 ]
 .right-column[
-* Other solutions
+# Drawbacks To Using Class Hierarchies
+
+(The Diamond Problem)[http://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem] 
 ]
 
 ???
@@ -267,11 +334,63 @@ Notes: ...
   ### Alternatives
 ]
 .right-column[
+# Alternatives
+* Component based
+* Interfaces
+* Data Oriented
 ]
 
 ???
 Notes: ... 
 
+---
+class: center, middle
+# Interfaces
+
+This method avoid the diamond problem.
+
+???
+Notes: ... 
+
+---
+.left-column[
+  ### Interface
+]
+.right-column[
+# Interface stuff
+* 1
+* 2
+* 3
+]
+
+???
+Notes: ... 
+
+---
+
+
+---
+class: center, middle
+# Practical Work
+
+Quick review of what is going on in the practicle work.
+
+???
+Notes: ... 
+
+---
+.left-column[
+  ### Practical 
+]
+.right-column[
+# Review the Practical code
+* 1
+* 2
+* 3
+]
+
+???
+Notes: ... 
 ---
 class: center, middle
 # Questions?
