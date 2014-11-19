@@ -706,7 +706,7 @@ Notes: ...
 class: center, middle
 # End
 
-Got back to the [programmer_talk](http://nathanrosspowell.com/presentations/programmer_talk) page to see the practical work.
+Got back to the [programmer_talk](http://nathanrosspowell.com/presentations/beginner_guides/programmer_talk) page to see the practical work.
 
 ???
 Notes: ... 
