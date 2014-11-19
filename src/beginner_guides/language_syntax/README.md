@@ -118,11 +118,11 @@ These are all functions
 
 ---
 
-
 class: center, middle
 # Class Hierarchies
 
 We will look over the principles of OOP* to describe class hierarchies.
+You will use class hierarchies to organise functionality and avoid duplication of code, even if you don't use the OOP methodology.
 
 _*Object Oriented Programming_
 
@@ -191,6 +191,8 @@ Notes: ...
 ]
 .right-column[
 # Drawbacks To Using Class Hierarchies
+
+(The Diamond Problem)[http://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem] 
 ]
 
 ???
@@ -215,6 +217,54 @@ Notes: ...
 ???
 Notes: ... 
 
+---
+class: center, middle
+# Interfaces
+
+This method avoid the diamond problem.
+
+???
+Notes: ... 
+
+---
+.left-column[
+  ### Interface
+]
+.right-column[
+# Interface stuff
+* 1
+* 2
+* 3
+]
+
+???
+Notes: ... 
+
+---
+
+
+---
+class: center, middle
+# Practical Work
+
+Quick review of what is going on in the practicle work.
+
+???
+Notes: ... 
+
+---
+.left-column[
+  ### Practical 
+]
+.right-column[
+# Review the Practical code
+* 1
+* 2
+* 3
+]
+
+???
+Notes: ... 
 ---
 class: center, middle
 # Questions?
