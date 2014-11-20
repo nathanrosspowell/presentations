@@ -1,4 +1,7 @@
 {
     "title" : "Language Syntax",
+    "practical" : [
+        "https://github.com/nathanrosspowell/presentations/blob/master/src/beginner_guides/language_syntax/program.cs",
+    ],
     "gist" : "https://gist.github.com/nathanrosspowell/4419562f9fbcd503a7d9.js"
 }

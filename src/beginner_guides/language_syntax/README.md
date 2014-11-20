@@ -26,13 +26,13 @@ Let's go over the basics.
 ---
 .left-column[
   ### Refresh
-  ### 1.
+  ### Quiz 1
 ]
 .right-column[
 
 # These are... 
 
-```cs
+```csharp
 int aSpecialNumber = 42;
 
 char endOfTheAlphabet = 'Z';
@@ -53,13 +53,13 @@ List<T> - a list of 'T', which can be any 'type'
 
 .left-column[
   ### Refresh
-  ### 1.
-  ### 2.
+  ### Quiz 1
+  ### Quiz 2
 ]
 .right-column[
 # And these... 
 
-```cs
+```csharp
 string GetName() 
 { 
     return "Bob";
@@ -84,14 +84,14 @@ These are all functions
 
 .left-column[
   ### Refresh
-  ### 1.
-  ### 2.
-  ### 3.
+  ### Quiz 1
+  ### Quiz 2
+  ### Quiz 3
 ]
 .right-column[
 # Finally...
 
-```cs
+```csharp
 class Obvious // 1
 {
     private string _name = "Captain"; // 2
@@ -114,7 +114,12 @@ class Container<T> // 4
 ```
 ]
 ???
-These are all functions
+1. Class
+2. private member
+3. public property
+4. generic class
+5. private template member
+6. explicity public property
 
 ---
 
@@ -149,10 +154,24 @@ Notes: ...
 ]
 .right-column[
 # Definition of OOP
+
+OOP is the using a model of real world object descriptions to organise data and functionality.
+
+`base class->derived class->really derived class`
+
+The derived classes have all of the functionality of the classes before it and also there own functionality.
+The base class also defines `virtual` functions which the deriving classes can choose to `override`.
+
+```csharp
+class Base {}
+class Derived : Base {}
+class ReallyDerived : Derived {}
+```
 ]
 
 ???
-Notes: ... 
+http://en.wikipedia.org/wiki/Object-oriented_programming
+http://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)
 
 ---
 .left-column[
@@ -162,6 +181,19 @@ Notes: ...
 ]
 .right-column[
 # Classic OOP Use Case
+
+This is an inheritence with one level.
+
+`shape->square`, `shape->circle` and `shape->triangle`.
+
+The `shape` class can have data such as a `public` colour and a `public` name. All derived classes will then have this functionality by default - cutting down on code duplication. 
+
+The `shape` class can define a `GetArea()` function which each of the inheriting classes must define.
+
+Here are two more complex examples:
+
+`entity->vehicle->car->police car` and `entity->vehilce->boat->police boat`
+
 ]
 
 ???
@@ -175,7 +207,14 @@ Notes: ...
   ### Advantages
 ]
 .right-column[
-# Advantages of Class Hierarchies
+# Advantages of OOP
+
+1. Easy visualisation of the code structure
+2. Therefore, easy to learn
+3. Easy to extend
+4. Reduce the amount of typing!
+5. Data encapsulation - `private` data is hidden away
+6. Virtual functions allow flexibility
 ]
 
 ???
@@ -190,13 +229,21 @@ Notes: ...
   ### Drawbacks
 ]
 .right-column[
-# Drawbacks To Using Class Hierarchies
+# Drawbacks To OOP
+Look at our previous example, how do we fit in a shared `poilice` class?
 
-[The Diamond Problem](http://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem)
+`entity->vehicle->car->police car` and `entity->vehilce->boat->police boat`
+
+The OOP model cannot branch out then branch back in, this is called the [Diamond Problem](http://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem).
+<img src="http://i.imgur.com/b9tdFfj.jpg" title="source: imgur.com" />
 ]
 
 ???
-Notes: ... 
+If mammal has a function called Speak(), both Man and Wolf will implement it! No problem there.
+
+Man.Speak() { return "Hello friend"; } Wolf.Speak() { return "HAWOOOOOOO"; }
+
+Now, if we call Werewolf.Speak, which of the base classes should it use?
 
 ---
 .left-column[
@@ -209,8 +256,8 @@ Notes: ...
 ]
 .right-column[
 # Alternatives
-* Component based
 * Interfaces
+* Component based
 * Data Oriented
 ]
 
