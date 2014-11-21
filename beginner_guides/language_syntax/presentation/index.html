@@ -297,6 +297,8 @@ class Base {}
 class Derived : Base {}
 class ReallyDerived : Derived {}
 ```
+
+Everyone can access `public` code, deriving classes can see `protected` code, and only the class can see it's own `private`s.
 ]
 
 ???
@@ -352,7 +354,9 @@ class Square : Shape
 {
     private int _width = 5;
     public override int GetArea() 
-    { return _width * _width };
+    { 
+        return _width * _width 
+    };
 }
 ``` 
 Then when you put a `Square` into a list of `Shapes`, the `GetArea` function will give the right answer. 
