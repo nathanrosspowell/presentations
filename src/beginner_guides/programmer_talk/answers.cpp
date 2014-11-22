@@ -68,6 +68,9 @@ class Exercise3
 public:
 	void StackOverflow()
 	{
+		// Making the function call itself is called 'recursion'!
+        	// If there is way to stop the recursion that means there is no 'break condition'
+        	// With no break condition, we will keep calling the function until there is no space left on the callstack!
 		StackOverflow();
 	}
 };
