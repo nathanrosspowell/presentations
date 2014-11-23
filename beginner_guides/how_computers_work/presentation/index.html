@@ -164,7 +164,7 @@ Doing things one step at a time is how a CPU works.
 A human might pick up both drinks and swtich them in place, a computer just doesn't think like that!
 
 ---
-# The model of my imaginary PC
+# My Imaginary PC
 
 The `NP20` is a computer spec which describes a computer with 20 'slots' of memory. 
 
@@ -178,6 +178,67 @@ When the computer starts it is nice enought to set them all to zero.
 
 The computer can run C/C++ programs.
 We will make some examples and then study the memory slots after each line of code!
+
+---
+# Example NP20 Program
+
+Here is a program that uses `3 slots` of memory:
+```cpp
+int hours = 24;
+int days = 7;
+int workHours = a * b;
+```
+Here are the detailed steps of the program as seem by the computer:
+
+    SET SLOT 0 TO 24
+    SET SLOT 1 TO 7
+    SET SLOT 2 TO RESULT SLOT 0 MULTIPLY SLOT 1 AND SET SLOT 2 TO THE RESULT
+
+When we compile* our program, the computer strips away the variable names and uses the only thing it knows, slots.
+Each slot has a number.
+In the computer you have at your desk this is called a 'memory address' and they look like this: 0x3A28213A.
+This is why we are using the simlified `NP20` computer for now.
+
+In programming the amazing `pointer` has one job, to point to a memory address. 
+See this [xkcd](http://xkcd.com/138/) for more details.
+
+---
+# Example Step-by-Step
+
+In the example we see there are three steps.
+This is what the memory slots look like at the end of each one:
+
+    0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19  END
+    |24 |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  | Hours
+    |24 |7  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  | Days
+    |24 |7  |168|0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  | Work Hours
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+    hours
+        days
+            workHours
+
+
+---
+# Swapping The Drinks
+
+Here is the swap algorithm:
+```cpp
+int a = 1;
+int b = 2;
+int c = a;
+a = b;
+b = c;
+```
+
+This is how it loops step by step:
+
+     0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19  END
+    |1  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  | a
+    |1  |2  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  | b
+    |1  |2  |1  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  | c
+    |2  |2  |1  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  | a=b
+    |2  |1  |1  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  |0  | b=c
+    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 
 ---
 class: center, middle
