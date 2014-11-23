@@ -226,7 +226,7 @@ class Square : Shape
     private int _width = 5;
     public override int GetArea() 
     { 
-        return _width * _width 
+        return _width * _width;
     };
 }
 ``` 

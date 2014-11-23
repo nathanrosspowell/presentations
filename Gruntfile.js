@@ -41,8 +41,21 @@ module.exports = function(grunt) {
                     'build/beginner_guides/language_syntax/index.html',
                     'temp/beginner_guides/language_syntax/presentation/index.html'
                 ],
+            },
+            how_computers_work: {
+                template: [
+                    'src/child_page/template.handlebars',
+                    'src/remark/header.handlebars'
+                ],
+                templateData: [
+                    'src/beginner_guides/how_computers_work/meta.json',
+                    'src/beginner_guides/how_computers_work/meta.json'
+                ],
+                output: [
+                    'build/beginner_guides/how_computers_work/index.html',
+                    'temp/beginner_guides/how_computers_work/presentation/index.html'
+                ],
             }
-
         },
         concat: {
             main: {
@@ -56,6 +69,11 @@ module.exports = function(grunt) {
                     'build/beginner_guides/language_syntax/presentation/index.html' : [
                         'temp/beginner_guides/language_syntax/presentation/index.html',
                         'src/beginner_guides/language_syntax/README.md',
+                        'src/remark/footer.html' ],
+                    // how_computers_work
+                    'build/beginner_guides/how_computers_work/presentation/index.html' : [
+                        'temp/beginner_guides/how_computers_work/presentation/index.html',
+                        'src/beginner_guides/how_computers_work/README.md',
                         'src/remark/footer.html' ],
                     // Main Index.
                     'build/test/index.html' : [
