@@ -39,7 +39,7 @@ Describe your steps in _extreme detail_!
 
 Doing things one step at a time is how a CPU works.
 
-A human might pick up both drinks and swtich them in place, a computer just doesn't _think_ like that!
+A human might pick up both drinks and switch them in place, a computer just doesn't _think_ like that!
 
 The though exercise can be done by listing out one step at a time instructions (just how the computer likes it), if you just add one more variable to the mix.
 
@@ -55,7 +55,7 @@ MEMORY SLOTS
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 ```
 The `NP10` supports integers and integer pointers and they are both one slot in size.
-When the computer starts it is nice enought to set all slots to zero.
+When the computer starts it is nice enough to set all slots to zero.
 
 The computer can run `C` programs.
 We will make some examples and then study the memory slots after each line of code!
@@ -82,7 +82,7 @@ SET SLOT 3 TO SLOT 1 MULTIPLY SLOT 2
 When we compile our program, the computer strips away the variable names and uses the only thing it knows, slots.
 Each slot has a number.
 In the computer you have at your desk this is called a 'memory address' and they look like this: `0x3A28213A`.
-This is why we are using the simlified `NP10` computer for now.
+This is why we are using the simplified `NP10` computer for now.
 
 In programming the amazing `pointer` has one job, to point to a memory address.
 See this [xkcd](http://xkcd.com/138/) for more details.
@@ -145,12 +145,12 @@ int second[3];
 second[2] = 4;
 ```
 
-The array can be initalised in one go without specifying the size.
+The array can be initialized in one go without specifying the size.
 You can use the subscript operator `[]` to specify an item in the list you want to use.
 
-It is also an option to set the size of the array and not initalise it.
+It is also an option to set the size of the array and not initialize it.
 This is not normally a good idea!
-If you declare a variable or an array but don't give it a there is a inital value, the value will be whatever is there already!
+If you declare a variable or an array but don't give it a there is a initial value, the value will be whatever is there already!
 In debug modes memory will start as `0` for you, but that is slow.
 There is a special `C++` syntax to set an array to all zeros: `int second[3] = {}`
 
@@ -170,7 +170,7 @@ second[2] = 4;
 SET SLOT 1 TO ARRAY SIZE 3 WITH 5 6 7
 SET SLOT 1 TO 8
 SET SLOT 4 TO ARRAY SIZE 3
-SET SLOT 6 TP 4
+SET SLOT 6 TO 4
 ```
 
 ```
@@ -245,7 +245,7 @@ Which is where `i` used to be!
 ???
 
 The line 'done with i' sets the slot back to 0.
-This is just to make it explicityl clear!
+This is just to make it explicitly clear!
 
 ---
 
@@ -270,7 +270,7 @@ superman += 1;
 ???
 http://www.cplusplus.com/doc/tutorial/pointers/
 
-(if you are viewing the source file, it shows '**superman', that is because the slideshot tool eats the first one)
+(if you are viewing the source file, it shows '**superman', that is because the slideshow tool eats the first one)
 
 ---
 
@@ -329,7 +329,7 @@ slot = nums + 2;
 **slot = 66;
 ```
 
-The variale `nums` holding the array is the pointer to the first element - nothing more!
+The variable `nums` holding the array is the pointer to the first element - nothing more!
 It use this array anywhere in the program, all you have to do is pass the pointer to it (which gives the first element) and **ALSO** the size.
 
 ---
