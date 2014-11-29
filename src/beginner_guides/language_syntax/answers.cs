@@ -1,4 +1,4 @@
-// Language Syntax
+// C# practical work
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +13,11 @@ namespace Lesson2
     // They are 'public' be default.
     interface InputCommand
     {
+        // All must have a way to return the name of the command.
         string GetName();
-        void Execute( string option );
+        // All commands must have an Execute function which takes a string.
+        // The 'arguments' string can be empty "" or it can have data: "true", "false", "1", "0" etc.
+        void Execute( string arguments );
     }
 
     // A simple class.
@@ -28,8 +31,12 @@ namespace Lesson2
 
         public bool ShouldExit() { return _exit; }
 
-        string InputCommand.GetName() { return "Exit"; }
-        void InputCommand.Execute(string option)
+        // Implement the InputCommand interface below
+        string InputCommand.GetName()
+        { 
+            return "ExitProgram"; 
+        }
+        void InputCommand.Execute(string arguments)
         {
             _exit = true;
             System.Console.WriteLine("Goodbye!");
@@ -37,19 +44,23 @@ namespace Lesson2
         }
     }
 
-    // A input which needs an on/off option passed to it
+    // A input which needs an on/off arguments passed to it
     // See how we can return a class member in hte 'GetName' funciton.
     class GodMode : InputCommand
     {
         private string _myCommandName = "GodMode";
         private bool _inGodMode = false;
 
-        string InputCommand.GetName() { return _myCommandName; }
-        void InputCommand.Execute( string option )
+        // Implement the InputCommand interface below
+        string InputCommand.GetName() 
+        { 
+            return _myCommandName; 
+        }
+        void InputCommand.Execute( string arguments )
         {
             // This is an example of complex logic.
             // There are three options for turning on the flag...
-            if ( option == "on" || option == "true" || option == "1" )
+            if ( arguments == "on" || arguments == "true" || arguments == "1" )
             {
                 if ( !_inGodMode )
                 {
@@ -58,7 +69,7 @@ namespace Lesson2
                 }
             }
             // ... and three options for turning off the flag!
-            else if ( option == "off" || option == "false" || option == "0" )
+            else if ( arguments == "off" || arguments == "false" || arguments == "0" )
             {
                 if ( _inGodMode )
                 {
@@ -67,6 +78,31 @@ namespace Lesson2
                 }
             }
             // Maybe there should be some feedback when the function fails to do anything?
+        }
+    }
+
+    // A class made to pass around the result of the user input to the program.
+    class UserInput
+    {
+        private string _command = "";
+        private string _arguments = "";
+
+        public string GetCommand()
+        { 
+            return _command;
+        }
+        public void SetCommand( string command )
+        {
+            _command = command;
+        }
+
+        public string GetArguments()
+        { 
+            return _arguments;
+        }
+        public void SetArguments( string arguments )
+        {
+            _arguments = arguments;
         }
     }
 
@@ -89,38 +125,31 @@ namespace Lesson2
             while (exit.ShouldExit() == false)
             {
                 // Get the user input.
-                string[] userInput = GetUserInput("Enter A Command:");
+                UserInput userInput = GetUserInput("Enter A Command:");
                 // Make sure we have something.
-                if (userInput.Length > 0)
+                if (userInput.GetCommand() != "" )
                 {
                     // Loop all of our commands.
                     foreach (InputCommand i in inputs)
                     {
                         // Check to see if the name matches.
-                        if (userInput[0] == i.GetName())
+                        if (userInput.GetCommand() == i.GetName())
                         {
-                            // If we gave a parameter, use it...
-                            if (userInput.Length > 1 )
-                            {
-                                i.Execute(userInput[1]);
-                            }
-                            // ... otherwise, pass an empty string.
-                            else
-                            {
-                                i.Execute("");
-                            }
+                            i.Execute(userInput.GetArguments());
                         }
                     }
                 }
             }
         }
 
-        // A helper function for getting user input
-        // returns an arry of either size 1 or 2
+        // A helper function for getting user input.
+        // The input text will be split at the first space.
+        // This means the first word will be in _command
+        // and all of the rest will be in _arguments.
         //    - [ "myCommand" ]
         //    - [ "myCommand", "argument" ]
         //    - [ "myCommand", "argument1 argument2 ..." ]
-        static string[] GetUserInput(string prompt)
+        static UserInput GetUserInput(string prompt)
         {
             // Tell the user what they should input.
             System.Console.WriteLine(prompt);
@@ -129,8 +158,14 @@ namespace Lesson2
             // Split into two strings at the first space ' ' character.
             // This can result in only one item.
             string[] splits = inputLine.Split( new char[]{' '}, 2);
-            // return the array.
-            return splits;
+            UserInput userInput = new UserInput();
+            userInput.SetCommand( splits[0] );
+            if ( splits.Length > 1 )
+            {
+                userInput.SetArguments( splits[1] );
+            }
+            // return the UserInput class.
+            return userInput;
         }
     }
 }
