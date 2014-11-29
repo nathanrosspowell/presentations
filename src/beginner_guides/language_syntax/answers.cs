@@ -18,6 +18,8 @@ namespace Lesson2
         // All commands must have an Execute function which takes a string.
         // The 'arguments' string can be empty "" or it can have data: "true", "false", "1", "0" etc.
         void Execute( string arguments );
+        // Add a function to see test if a command should be removed
+        bool ShouldRemove();
     }
 
     // A simple class.
@@ -42,6 +44,7 @@ namespace Lesson2
             System.Console.WriteLine("Goodbye!");
             System.Threading.Thread.Sleep(1000); // 1 second delay.
         }
+        bool InputCommand.ShouldRemove() { return false; }
     }
 
     // A input which needs an on/off arguments passed to it
@@ -79,6 +82,7 @@ namespace Lesson2
             }
             // Maybe there should be some feedback when the function fails to do anything?
         }
+        bool InputCommand.ShouldRemove() { return false; }
     }
 
     // A class made to pass around the result of the user input to the program.
@@ -106,6 +110,72 @@ namespace Lesson2
         }
     }
 
+    class HelloPerson : InputCommand
+    {
+        public string Name { get; set; }
+
+        // Implement the InputCommand interface below
+        string InputCommand.GetName()
+        { 
+            return Name;
+        }
+        void InputCommand.Execute(string arguments)
+        {
+            System.Console.WriteLine("Hello, {0}!", Name );
+        }
+        bool InputCommand.ShouldRemove() { return false; }
+    }
+
+    class Counter : InputCommand
+    {
+        private int _count = 0; 
+
+        // Implement the InputCommand interface below
+        string InputCommand.GetName()
+        { 
+            return "Counter";
+        }
+        void InputCommand.Execute(string arguments)
+        {
+            _count += 1;
+            System.Console.WriteLine("Executed {0} times!", _count );
+        }
+        bool InputCommand.ShouldRemove() { return _count > 2; }
+    }
+    
+    class Shape: InputCommand
+    {
+        virtual public string GetShapeName() { return "Shape"; }
+        virtual public double GetArea() { return 0; }
+
+        // Implement the InputCommand interface below
+        string InputCommand.GetName()
+        { 
+            return GetShapeName(); 
+        }
+        void InputCommand.Execute(string arguments)
+        {
+            System.Console.WriteLine("The area of '{0}' is {1} meters squared.", GetShapeName(), GetArea() );
+        }
+        bool InputCommand.ShouldRemove() { return false; }
+    }
+    
+    class Square : Shape
+    {
+        public int Width { get; set; }
+
+        override public string GetShapeName() { return "Square"; }
+        override public double GetArea() { return Width * Width; } 
+    }
+
+    class Circle : Shape
+    {
+        public int Radius { get; set; }
+
+        override public string GetShapeName() { return "Circle"; }
+        override public double GetArea() { return Math.PI * ( Radius * Radius ); }
+    }
+
     class Program
     {
         // The static entry point of the program.
@@ -116,11 +186,19 @@ namespace Lesson2
             // Create some instances which implement the InputCommand interface.
             GodMode godMode = new GodMode();
             Exit exit = new Exit();
+            HelloPerson nathan = new HelloPerson();
+            nathan.Name = "Nathan";
+            HelloPerson elliot = new HelloPerson() { Name = "Elliot" };
             // ... and more ...
             // Add them to the list.
             // The list is of type 'InputCommand', yet these different class types can be added!
             inputs.Add( godMode );
             inputs.Add( exit );
+            inputs.Add( nathan );
+            inputs.Add( elliot );
+            inputs.Add( new Counter() );
+            inputs.Add( new Square() { Width = 5 } );
+            inputs.Add( new Circle() { Radius = 2 } );
             // Loop until we should exit.
             while (exit.ShouldExit() == false)
             {
@@ -130,12 +208,17 @@ namespace Lesson2
                 if (userInput.GetCommand() != "" )
                 {
                     // Loop all of our commands.
-                    foreach (InputCommand i in inputs)
+                    foreach (InputCommand i in inputs.ToArray()) // Get the array representation of the list - this makes a copy.
                     {
                         // Check to see if the name matches.
                         if (userInput.GetCommand() == i.GetName())
                         {
                             i.Execute(userInput.GetArguments());
+                            if ( i.ShouldRemove() )
+                            {
+                                System.Console.WriteLine( "Removing {0}...", i.GetName() );
+                                inputs.Remove( i ); // do not remove something from a list if you are looping it. But we are looping a copy of the list.
+                            }
                         }
                     }
                 }
