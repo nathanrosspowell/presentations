@@ -325,7 +325,7 @@ nums[1] = 66;
 int nums[] = { 22, 33, 44 };
 int* slot = nums;
 **slot = 55;
-slot = nums + 2;
+slot = nums + 1;
 **slot = 66;
 ```
 
