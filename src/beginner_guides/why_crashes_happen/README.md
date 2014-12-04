@@ -26,44 +26,321 @@ I will prepare some examples of each that I might attempt to debug live in the s
 ---
 .left-column[
   ### Null ptr 
-  ###-Example
 ]
 .right-column[
-#  Null pointer example
+# Null Pointer
 
+A pointer holds the value of a memory adress.
+
+They type of the pointer defines what is in that memory adress.
+
+```cpp
+int* ptr = NULL;
+```
+
+This is a pointer to an int, that has been initalised to `NULL` (aka empty).
+That is the __CORRECT__ way to initalise a pointer.
+But you need to set it to something before you use it.
+]
+
+---
+.left-column[
+  ### Null ptr 
+  ###-What
+]
+.right-column[
+# What
+
+Have a pointer, which points to nothing, then try and use it.
 ```cpp
 Player* player = NULL; // = nullptr; // = 0;
 player->Update(); // CRASH
 ```
 
+Here we see `->` used to call a function instead of the `.` method.
+Using `->` is the same as doing `(*player).Update();`.
+
+`(*player)` is a dereference, which means 'use the value at the memory address `player`'.
 ]
 
 ---
 .left-column[
   ### Null ptr 
-  ###-Example
-  ###-Explanation
+  ###-What
+  ###-How
 ]
 .right-column[
-#  Null pointer explanation
+# How
 
 It isn't pointing at a memory adress.
 
+If the pointer is set to `NULL`, that means it is set to the memory adress `0`.
+
+If you try to get the value from a memory adress that doesn't exsits (adress `0`), then there is going to be a problem.
+
 ]
 
 ---
 .left-column[
   ### Null ptr 
-  ###-Example
-  ###-Explanation
-  ###-The why
+  ###-What
+  ###-How
+  ###-Why
 ]
 .right-column[
-#  Why Null pointer crashes happen
+# Why 
 
-Lazy programmers.
+Lazy programmers.  Pointers are used so much that sometimes people simply forget to check.
+
+Pointers are often used as parameters to functions where it is just assumed that a valid pointer is passed.
+```cpp
+void Test(int* ptr) { /* do stuff with ptr */ }
+```
+But there is nothing stopping someone doing `Test(NULL);`
+
+Functions can also return pointers, which means they can return NULL. It is another place where people forget to put checks.
+
+```cpp
+TimeOfDay* GetTimeOfDay(){ return NULL; }
+TimeOfDay* ptr = Get();
+ptr->GetSeconds(); // CRASH
+```
+]
+
+
+---
+.left-column[
+  ### Handle 
+]
+.right-column[
+# Invalid Handle
 
 ]
+
+
+---
+.left-column[
+  ### Handle 
+  ###-What
+]
+.right-column[
+# What
+
+]
+
+---
+.left-column[
+  ### Handle 
+  ###-What
+  ###-How
+]
+.right-column[
+# How
+
+]
+
+---
+.left-column[
+  ### Handle 
+  ###-What
+  ###-How
+  ###-Why
+]
+.right-column[
+# Why 
+
+]
+
+
+---
+.left-column[
+  ### Index 
+  ###-What
+]
+.right-column[
+# Index Out Of Range
+## What
+
+]
+
+---
+.left-column[
+  ### Index 
+  ###-What
+  ###-How
+]
+.right-column[
+
+# Index Out Of Range
+## How
+
+]
+
+---
+.left-column[
+  ### Index 
+  ###-What
+  ###-How
+  ###-Why
+]
+.right-column[
+# Index Out Of Range
+## Why 
+
+]
+
+
+---
+.left-column[
+  ### Stack 
+  ###-What
+]
+.right-column[
+# Stack Overflow
+## What
+
+]
+
+---
+.left-column[
+  ### Stack 
+  ###-What
+  ###-How
+]
+.right-column[
+
+# Stack Overflow
+## How
+
+]
+
+---
+.left-column[
+  ### Stack 
+  ###-What
+  ###-How
+  ###-Why
+]
+.right-column[
+# Stack Overflow
+## Why 
+
+]
+
+---
+.left-column[
+  ### Memory 
+  ###-What
+]
+.right-column[
+# Out Of Memory
+## What
+
+]
+
+---
+.left-column[
+  ### Memory 
+  ###-What
+  ###-How
+]
+.right-column[
+
+# Out Of Memory
+## How
+
+]
+
+---
+.left-column[
+  ### Memory 
+  ###-What
+  ###-How
+  ###-Why
+]
+.right-column[
+# Out Of Memory
+## Why 
+
+]
+
+
+---
+.left-column[
+  ### Zero 
+  ###-What
+]
+.right-column[
+# Divide By Zero
+## What
+
+]
+
+---
+.left-column[
+  ### Zero 
+  ###-What
+  ###-How
+]
+.right-column[
+
+# Divide By Zero
+## How
+
+]
+
+---
+.left-column[
+  ### Zero 
+  ###-What
+  ###-How
+  ###-Why
+]
+.right-column[
+# Divide By Zero
+## Why 
+
+]
+
+
+---
+.left-column[
+  ### Traps 
+  ###-What
+]
+.right-column[
+# Traps And Asserts
+## What
+
+]
+
+---
+.left-column[
+  ### Traps 
+  ###-What
+  ###-How
+]
+.right-column[
+
+# Traps And Asserts
+## How
+
+]
+
+---
+.left-column[
+  ### Traps 
+  ###-What
+  ###-How
+  ###-Why
+]
+.right-column[
+# Traps And Asserts
+## Why 
+
+]
+
+
 
 ---
 

@@ -55,6 +55,20 @@ module.exports = function(grunt) {
                     'build/beginner_guides/how_computers_work/index.html',
                     'temp/beginner_guides/how_computers_work/presentation/index.html'
                 ],
+            },
+            why_crashes_happen: {
+                template: [
+                    'src/child_page/template.handlebars',
+                    'src/remark/header.handlebars'
+                ],
+                templateData: [
+                    'src/beginner_guides/why_crashes_happen/meta.json',
+                    'src/beginner_guides/why_crashes_happen/meta.json'
+                ],
+                output: [
+                    'build/beginner_guides/why_crashes_happen/index.html',
+                    'temp/beginner_guides/why_crashes_happen/presentation/index.html'
+                ],
             }
         },
         concat: {
@@ -74,6 +88,11 @@ module.exports = function(grunt) {
                     'build/beginner_guides/how_computers_work/presentation/index.html' : [
                         'temp/beginner_guides/how_computers_work/presentation/index.html',
                         'src/beginner_guides/how_computers_work/README.md',
+                        'src/remark/footer.html' ],
+                    // why_crashes_happen
+                    'build/beginner_guides/why_crashes_happen/presentation/index.html' : [
+                        'temp/beginner_guides/why_crashes_happen/presentation/index.html',
+                        'src/beginner_guides/why_crashes_happen/README.md',
                         'src/remark/footer.html' ],
                     // Main Index.
                     'build/test/index.html' : [
