@@ -1,6 +1,5 @@
 class: center, middle
-# How Computers Work
-
+# How Computers Work 
 By Nathan Ross Powell
 
 Source: [how_computers_work/README.md](https://github.com/nathanrosspowell/presentations/blob/master/src/beginner_guides/how_computers_work/README.md)
