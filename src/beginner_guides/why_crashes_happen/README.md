@@ -356,8 +356,8 @@ for ( int i = 0; i < 4; ++i )
 .right-column[
 # The fix
 
-The fix is to FORCE a crash whenever a bad index happens.
-To do this we need to:
+FORCE a crash whenever a bad index happens.
+To do this:
 * ditch standard _raw_ C++ arrays.
 * overload the subscript (`[]`) operator
 
@@ -365,15 +365,17 @@ To do this we need to:
 class ListOf4 
 {
 private:
-    int m_[4];
+    int m_array[4];
 public:
-    int operator[] (const int index);
+    int operator[] (const int index)
+    {
+        ASSERT( index > 0 && index < 4 );
+        return m_array[index];
+    }
 };
 ```
-
 This is impractical as you would need a class for each type and length of array.
 This is where templates come into play.
-
 ```cpp
 std::array<int, 4> scores = {1, 2, 3, 4};
 std::vector<int> scores = {1, 2, 3, 4};
@@ -381,6 +383,24 @@ std::vector<int> scores = {1, 2, 3, 4};
 
 ]
 
+---
+.left-column[
+  ### Stack 
+]
+.right-column[
+# Stack Overflow
+
+Each time you call a funtion it uses a bit of memory.
+As functions nest:
+```cpp
+void A(){ B(); }
+void B(){ C(); }
+/* and so on... */
+```
+... they use up the space on the call stack.
+
+At a certain point - we run out of memory.
+]
 
 ---
 .left-column[
@@ -388,36 +408,89 @@ std::vector<int> scores = {1, 2, 3, 4};
   ###-What
 ]
 .right-column[
-# Stack Overflow
-## What
+# What does it look like
 
+The probably cause of Stack overflow is recursive function.
+
+A recursive function is one that calls itself!
+
+``cpp
+void Recursion()
+{
+    Recursion();
+}
+```
 ]
 
 ---
 .left-column[
   ### Stack 
   ###-What
-  ###-How
-]
-.right-column[
-
-# Stack Overflow
-## How
-
-]
-
----
-.left-column[
-  ### Stack 
-  ###-What
-  ###-How
   ###-Why
 ]
 .right-column[
-# Stack Overflow
-## Why 
+# Why does it crash
+
+As explained, the program runs out of space to call more functions.
+
+The stack is a _first on, last off_ memory structure.
+When a function finishes, program needs to know where it should carry on executing commands.
+This is all explained by the information on the stack.
+
+On platforms with not a lot of memory (games consoles, mars rovers, etc) the maxium stack size you program produces is very important.
+The memory availble to use for the call stack can be optimized to suit your program.
 
 ]
+
+---
+.left-column[
+  ### Stack 
+  ###-What
+  ###-Why
+  ###-How
+]
+.right-column[
+## How does it happen
+
+No one would make the function like 'Recursive()', but the recursive function pattern is very powerful for things which hold copies of themselves, like 'linked lists`.
+
+```cpp
+int Count( Node* node )
+{
+    int value = node->value;
+    if ( node->next )
+    {
+        value += Count( node->next );
+    }
+    return value;
+}
+```
+If the linked lists loops, this function will keep going until the call stack explides!
+
+]
+
+???
+http://en.wikipedia.org/wiki/Linked_list
+
+---
+.left-column[
+  ### Stack 
+  ###-What
+  ###-Why
+  ###-How
+  ###-Fix
+]
+.right-column[
+# The Fix
+
+You _HAVE_ to have a good breaking case to stop recursive functions.
+
+It is very hard to guarentee that your function will stop before busting the call stack.
+For a real brain exercise look up the [Halting Problem](http://en.wikipedia.org/wiki/Halting_problem).
+
+
+]
+
 
 ---
 .left-column[
@@ -426,7 +499,7 @@ std::vector<int> scores = {1, 2, 3, 4};
 ]
 .right-column[
 # Out Of Memory
-## What
+# What does it look like
 
 ]
 
