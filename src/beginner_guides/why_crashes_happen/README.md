@@ -182,9 +182,9 @@ Here we get a valid handle, which we can use, but then it becomes invalid.
 Using it after it's invalid is going to cause a crash.
 
 ```cpp
-EntityHandle player = GetPlayerHandle(); // Gives a valid handle!
+EntityHandle player = GetPlayerHandle(); // Gives valid handle
 /* ... lots of other code, player gets deleted ... */
-player->ScorePoint(); // the -> operator returns NULL, so CRASH
+player->ScorePoint(); // the -> operator returns NULL, CRASH
 ```
 Notice the use of `->` directly on the handle.
 This is custom behaviour defined by the operator overload in the class.
@@ -198,7 +198,7 @@ This is custom behaviour defined by the operator overload in the class.
   ###-Why
 ]
 .right-column[
-# Why does it happen
+# Why does it crash
 
 A handle will always do a step to find the object. 
 This is done by using some kind of ID and a look up function.
@@ -248,10 +248,10 @@ The handle is a class so a descriptive function can be used to make code readabl
 If you have good eyes you will have seen the answer in the class.
 
 ```cpp
-EntityHandle player = GetPlayerHandle(); // Gives a valid handle!
+EntityHandle player = GetPlayerHandle(); // Gives valid handle!
 if ( player.IsValid() )
 {
-    player->ScorePoint(); // the -> operator returns NULL, so CRASH
+    player->ScorePoint(); // -> operator gives a valid pointer
 }
 ```
 
@@ -267,10 +267,14 @@ Now the pointer is checked! The `IsValid()` function can also hold any custom lo
 .right-column[
 # Index Out Of Range
 
-```cpp
-list[-1];
-```
+The index operator _or_ subscript operator is what we have been using to access elements in a list.
 
+```cpp
+int scores[] = { 5, 6, 7, 8 };
+scores[ 0 ] = 9; // sets 5 to be 9
+```
+The possible indexes for this list are `[0]`, `[1]`, `[2]` and `[3]`.
+The general formular is range `0 to (size - 1)`.
 ]
 ---
 .left-column[
@@ -280,6 +284,18 @@ list[-1];
 .right-column[
 # What does it look like
 
+Any direct access with an incorrect index.
+```cpp
+scores[99] = 10;
+scores[-1] = 11;
+```
+This can easily happen in a loop.
+```cpp
+for ( int i = 0; i < 20; ++i )
+{
+    scores[ i ]; // if i > 3, CRASH
+}
+```
 ]
 
 ---
@@ -289,7 +305,15 @@ list[-1];
   ###-Why
 ]
 .right-column[
-# Why does it happen
+# Why does it crash
+
+The answer is; it doesn't always!
+
+Depending on the list type being used and the compiler (etc etc) you can get differnt results.
+
+When this doesn't crash - we have the case of memory corruption...
+
+Going past the end of the arry will access the memory addresses directly after the array, which could be anything.
 
 ]
 
@@ -303,6 +327,22 @@ list[-1];
 .right-column[
 # How does it happen
 
+This one is a monster!
+
+Like checking every pointer, you really need to do a range check before trying to get an item via an index!
+```cpp
+scores[ PlayerIndex() ] = 100; // could CRASH
+```
+As soon as a variable is being used inside the `[]` you have to makes sure no crazy values are going to be used as an index.
+
+Programmers might try to do clever maths inside of a loop... this will end badly most of the time.
+```cpp
+for ( int i = 0; i < 4; ++i )
+{
+    // score = next score. When i = 3, CRASH
+    scores[ i ] = scores[ i + 1 ];
+}
+```
 ]
 
 
@@ -316,6 +356,28 @@ list[-1];
 .right-column[
 # The fix
 
+The fix is to FORCE a crash whenever a bad index happens.
+To do this we need to:
+* ditch standard _raw_ C++ arrays.
+* overload the subscript (`[]`) operator
+
+```cpp
+class ListOf4 
+{
+private:
+    int m_[4];
+public:
+    int operator[] (const int index);
+};
+```
+
+This is impractical as you would need a class for each type and length of array.
+This is where templates come into play.
+
+```cpp
+std::array<int, 4> scores = {1, 2, 3, 4};
+std::vector<int> scores = {1, 2, 3, 4};
+```
 
 ]
 
