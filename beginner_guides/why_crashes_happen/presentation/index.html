@@ -633,6 +633,8 @@ For a real brain exercise look up the [Halting Problem](http://en.wikipedia.org/
 # Out Of Memory
 
 Your uber computer might have 32gb of RAM, but a program can still run out of free memory.
+
+
 ]
 
 ---
@@ -647,6 +649,9 @@ Your uber computer might have 32gb of RAM, but a program can still run out of fr
 HugeThing* thing = new HugeThing();
 thing->UserIt(); // CRASH?!
 ```
+
+Out of memory will create pointer crashes like this is there is no extra checking inside of the memory allocation.
+Allocating new memory is never guaranteed to work.
 
 ]
 
@@ -674,6 +679,7 @@ Sometimes the memory is needed to resize an array (`vector`) internally, this gi
 .right-column[
 # How does it happen
 
+Many ways:
 * Just too much memory usage
 * Memory fragmentation
 * Memory leaks!
@@ -698,6 +704,8 @@ We need to track all allocations and deallocations to track leaks.
 We need smart allocation to try and minimize fragmentation.
 
 We need to optimize for code size (there are compiler options for this, but it makes slower code).
+
+It is pointless to do pointer check around memory allocations, because if you are out of memory it's only a matter of time before the program is going to stop.
 ]
 
 
@@ -741,6 +749,7 @@ Outside of computer programs dividing by zero doesn't make any sense at all.
 
 Mathematically it results in something that is [infinitely complex](http://reference.wolfram.com/language/ref/DirectedInfinity.html).
 
+What is a computer supposed to do with this command?!
 
 ]
 
@@ -796,6 +805,13 @@ int safe = divisor != 0 ? value / divisor : 1;
 ]
 .right-column[
 # Traps and Asserts
+
+These are two things that most programs use to help with error checking.
+
+In a non-master build (a buiild with no debugging symbols) the assert will give information about problems in the program.
+A lot of the time asserts are set up to be skippable.
+
+In the same builds traps will make the program crash
 ]
 
 ---
