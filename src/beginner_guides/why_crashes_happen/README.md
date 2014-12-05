@@ -414,7 +414,7 @@ The probably cause of Stack overflow is recursive function.
 
 A recursive function is one that calls itself!
 
-``cpp
+```cpp
 void Recursion()
 {
     Recursion();
@@ -495,24 +495,25 @@ For a real brain exercise look up the [Halting Problem](http://en.wikipedia.org/
 ---
 .left-column[
   ### Memory 
-  ###-What
 ]
 .right-column[
 # Out Of Memory
+
+Your uber computer might have 32gb of RAM, but a program can still run out of free memory.
+]
+
+---
+.left-column[
+  ### Memory 
+  ###-What
+]
+.right-column[
 # What does it look like
 
-]
-
----
-.left-column[
-  ### Memory 
-  ###-What
-  ###-How
-]
-.right-column[
-
-# Out Of Memory
-## How
+```cpp
+HugeThing* thing = new HugeThing();
+thing->UserIt(); // CRASH?!
+```
 
 ]
 
@@ -520,53 +521,149 @@ For a real brain exercise look up the [Halting Problem](http://en.wikipedia.org/
 .left-column[
   ### Memory 
   ###-What
-  ###-How
   ###-Why
 ]
 .right-column[
-# Out Of Memory
-## Why 
+# Why does it crash
 
-]
+You end up with NULL pointers instead of allocated memory.
 
-
----
-.left-column[
-  ### Zero 
-  ###-What
-]
-.right-column[
-# Divide By Zero
-## What
-
+Sometimes the memory is needed to resize an array (`vector`) internally, this gives _very_ odd crash dumps.
 ]
 
 ---
 .left-column[
-  ### Zero 
+  ### Memory 
   ###-What
+  ###-Why
   ###-How
 ]
 .right-column[
+# How does it happen
 
-# Divide By Zero
-## How
+* Just too much memory usage
+* Memory fragmentation
+* Memory leaks!
 
 ]
 
 ---
 .left-column[
-  ### Zero 
+  ### Memory 
   ###-What
+  ###-Why
   ###-How
+  ###-Fix
+]
+.right-column[
+# The fix
+
+Memory managers!
+
+We need to track all allocations and deallocations to track leaks.
+
+We need smart allocation to try and minimise fragmentation.
+
+We need to optimise for code size (there are compiler options for this, but it makes slower code).
+]
+
+
+---
+.left-column[
+  ### 1/0 
+]
+.right-column[
+# Divide By Zero
+
+THE classic error.
+
+My favorite to check for when doing code reviews!
+
+]
+
+---
+.left-column[
+  ### 1/0 
+  ###-What
+]
+.right-column[
+# What does it look like
+
+```cpp
+anything / 0; // CRASH
+anything / x; // if x is 0, CRASH
+```
+]
+
+---
+.left-column[
+  ### 1/0 
+  ###-What
   ###-Why
 ]
 .right-column[
-# Divide By Zero
-## Why 
+# Why does it crash
+
+Outside of computer programs dividing by zero doesn't make any sense at all.
+
+Mathmatically it resuls in something that is [infinitely complex](http://reference.wolfram.com/language/ref/DirectedInfinity.html).
+
 
 ]
 
+---
+.left-column[
+  ### 1/0 
+  ###-What
+  ###-Why
+  ###-How
+]
+.right-column[
+# How does it happen
+
+Lazy programmers (do you see a theme here?).
+
+It adds a lot of code to make sure you don't divide by zero.
+
+Sometimes it seems that it would be impossible for the value you are dividing by to be zero... but then with the right set of edge cases - CRASH!
+]
+
+---
+.left-column[
+  ### 1/0 
+  ###-What
+  ###-Why
+  ###-How
+  ###-Fix
+]
+.right-column[
+# The fix
+
+Like a pointer check, you need to check for zero.
+
+```cpp
+int divisor = 0;
+int value = 99;
+if ( divisor != 0 ) // same as 'if (divisor)'
+{
+    return value / divisor;
+}
+```
+Maybe you have a sepcial case you want to do when you have a zero - it is a good time to take advantage of the [Ternary operation](http://en.wikipedia.org/wiki/Ternary_operation).
+```cpp
+// boolean statement ? true case : false case
+int safe = divisor != 0 ? value / divisor : 1;
+```
+]
+
+
+---
+.left-column[
+  ### Traps 
+]
+.right-column[
+# Traps and Asserts
+]
 
 ---
 .left-column[
@@ -574,38 +671,29 @@ For a real brain exercise look up the [Halting Problem](http://en.wikipedia.org/
   ###-What
 ]
 .right-column[
-# Traps And Asserts
-## What
-
+# What do they it look like
 ]
 
 ---
 .left-column[
   ### Traps 
   ###-What
-  ###-How
-]
-.right-column[
-
-# Traps And Asserts
-## How
-
-]
-
----
-.left-column[
-  ### Traps 
-  ###-What
-  ###-How
   ###-Why
 ]
 .right-column[
-# Traps And Asserts
-## Why 
-
+# Why do we use them
 ]
 
-
+---
+.left-column[
+  ### Traps 
+  ###-What
+  ###-Why
+  ###-How
+]
+.right-column[
+# How does it help
+]
 
 ---
 
