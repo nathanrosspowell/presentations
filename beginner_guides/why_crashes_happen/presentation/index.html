@@ -159,16 +159,17 @@ I will prepare some examples of each that I might attempt to debug live in the s
 .right-column[
 # Null Pointer
 
-A pointer holds the value of a memory adress.
+A pointer holds the value of a memory address.
 
-They type of the pointer defines what is in that memory adress.
+The type of the pointer defines what is in that memory address.
 
 ```cpp
 int* ptr = NULL;
 ```
 
-This is a pointer to an int, that has been initalised to `NULL` (aka empty).
-That is the __CORRECT__ way to initalise a pointer.
+This is a pointer to an int, that has been initialized to `NULL` (aka empty).
+
+That is the __CORRECT__ way to initialize a pointer.
 But you need to set it to something before you use it.
 ]
 
@@ -200,11 +201,11 @@ Using `->` is the same as doing `(*player).Update();`.
 .right-column[
 # Why does it crash
 
-It isn't pointing at a memory adress.
+It isn't pointing at a memory address.
 
-If the pointer is set to `NULL`, that means it is set to the memory adress `0`.
+If the pointer is set to `NULL`, that means it is set to the memory address `0`.
 
-If you try to get the value from a memory adress that doesn't exsits (adress `0`), then there is going to be a problem.
+If you try to get the value from a memory address that doesn't exist (address `0`), then there is going to be a problem.
 
 ]
 
@@ -316,7 +317,7 @@ EntityHandle player = GetPlayerHandle(); // Gives valid handle
 player->ScorePoint(); // the -> operator returns NULL, CRASH
 ```
 Notice the use of `->` directly on the handle.
-This is custom behaviour defined by the operator overload in the class.
+This is custom behavior defined by the operator overload in the class.
 
 ]
 
@@ -349,13 +350,13 @@ This is a big advantage to using handles.
 .right-column[
 # How does it happen
 
-Again, lazyness.
+Again, laziness.
 
 It is easy to forget to check a handle to see if it is valid.
 
-In theory a handle is safer than a pointer so many people are not as strick when using them.
+In theory a handle is safer than a pointer so many people are not as strict when using them.
 
-Programmers make assumtions to like "The player will always be there, so no need to check the handle"... so things will crash when the player respawns or teleports!
+Programmers make assumptions to like "The player will always be there, so no need to check the handle"... so things will crash when the player respawns or teleports!
 
 ]
 
@@ -403,7 +404,7 @@ int scores[] = { 5, 6, 7, 8 };
 scores[ 0 ] = 9; // sets 5 to be 9
 ```
 The possible indexes for this list are `[0]`, `[1]`, `[2]` and `[3]`.
-The general formular is range `0 to (size - 1)`.
+The general formula is range `0 to (size - 1)`.
 ]
 ---
 .left-column[
@@ -438,11 +439,11 @@ for ( int i = 0; i < 20; ++i )
 
 The answer is; it doesn't always!
 
-Depending on the list type being used and the compiler (etc etc) you can get differnt results.
+Depending on the list type being used and the compiler (etc etc) you can get different results.
 
 When this doesn't crash - we have the case of memory corruption...
 
-Going past the end of the arry will access the memory addresses directly after the array, which could be anything.
+Going past the end of the array will access the memory addresses directly after the array, which could be anything.
 
 ]
 
@@ -464,7 +465,7 @@ scores[ PlayerIndex() ] = 100; // could CRASH
 ```
 As soon as a variable is being used inside the `[]` you have to makes sure no crazy values are going to be used as an index.
 
-Programmers might try to do clever maths inside of a loop... this will end badly most of the time.
+Programmers might try to do clever math inside of a loop... this will end badly most of the time.
 ```cpp
 for ( int i = 0; i < 4; ++i )
 {
@@ -519,16 +520,19 @@ std::vector<int> scores = {1, 2, 3, 4};
 .right-column[
 # Stack Overflow
 
-Each time you call a funtion it uses a bit of memory.
+Each time you call a function it uses a bit of memory.
 As functions nest:
 ```cpp
 void A(){ B(); }
 void B(){ C(); }
+void C(){ D(); }
 /* and so on... */
 ```
 ... they use up the space on the call stack.
 
-At a certain point - we run out of memory.
+At a certain point we run out of memory and the program has to stop.
+
+
 ]
 
 ---
@@ -566,8 +570,8 @@ The stack is a _first on, last off_ memory structure.
 When a function finishes, program needs to know where it should carry on executing commands.
 This is all explained by the information on the stack.
 
-On platforms with not a lot of memory (games consoles, mars rovers, etc) the maxium stack size you program produces is very important.
-The memory availble to use for the call stack can be optimized to suit your program.
+On platforms with not a lot of memory (games consoles, mars rovers, etc) the maximum stack size you program produces is very important.
+The memory available to use for the call stack can be optimized to suit your program.
 
 ]
 
@@ -594,7 +598,7 @@ int Count( Node* node )
     return value;
 }
 ```
-If the linked lists loops, this function will keep going until the call stack explides!
+If the linked lists loops, this function will keep going until the call stack explodes!
 
 ]
 
@@ -614,7 +618,7 @@ http://en.wikipedia.org/wiki/Linked_list
 
 You _HAVE_ to have a good breaking case to stop recursive functions.
 
-It is very hard to guarentee that your function will stop before busting the call stack.
+It is very hard to guarantee that your function will stop before busting the call stack.
 For a real brain exercise look up the [Halting Problem](http://en.wikipedia.org/wiki/Halting_problem).
 
 
@@ -691,9 +695,9 @@ Memory managers!
 
 We need to track all allocations and deallocations to track leaks.
 
-We need smart allocation to try and minimise fragmentation.
+We need smart allocation to try and minimize fragmentation.
 
-We need to optimise for code size (there are compiler options for this, but it makes slower code).
+We need to optimize for code size (there are compiler options for this, but it makes slower code).
 ]
 
 
@@ -735,7 +739,7 @@ anything / x; // if x is 0, CRASH
 
 Outside of computer programs dividing by zero doesn't make any sense at all.
 
-Mathmatically it resuls in something that is [infinitely complex](http://reference.wolfram.com/language/ref/DirectedInfinity.html).
+Mathematically it results in something that is [infinitely complex](http://reference.wolfram.com/language/ref/DirectedInfinity.html).
 
 
 ]
@@ -778,7 +782,7 @@ if ( divisor != 0 ) // same as 'if (divisor)'
     return value / divisor;
 }
 ```
-Maybe you have a sepcial case you want to do when you have a zero - it is a good time to take advantage of the [Ternary operation](http://en.wikipedia.org/wiki/Ternary_operation).
+Maybe you have a special case you want to do when you have a zero - it is a good time to take advantage of the [Ternary operation](http://en.wikipedia.org/wiki/Ternary_operation).
 ```cpp
 // boolean statement ? true case : false case
 int safe = divisor != 0 ? value / divisor : 1;
@@ -838,7 +842,6 @@ class: center, middle
 Got back to the [why_crashes_happen](http://nathanrosspowell.com/presentations/beginner_guides/why_crashes_happen) page to see the practical work.
 ???
 Notes: ...
-
 
   </textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
