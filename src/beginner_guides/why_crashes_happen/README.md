@@ -504,6 +504,8 @@ For a real brain exercise look up the [Halting Problem](http://en.wikipedia.org/
 # Out Of Memory
 
 Your uber computer might have 32gb of RAM, but a program can still run out of free memory.
+
+
 ]
 
 ---
@@ -518,6 +520,9 @@ Your uber computer might have 32gb of RAM, but a program can still run out of fr
 HugeThing* thing = new HugeThing();
 thing->UserIt(); // CRASH?!
 ```
+
+Out of memory will create pointer crashes like this is there is no extra checking inside of the memory allocation.
+Allocating new memory is never guaranteed to work.
 
 ]
 
@@ -545,6 +550,7 @@ Sometimes the memory is needed to resize an array (`vector`) internally, this gi
 .right-column[
 # How does it happen
 
+Many ways:
 * Just too much memory usage
 * Memory fragmentation
 * Memory leaks!
@@ -569,6 +575,8 @@ We need to track all allocations and deallocations to track leaks.
 We need smart allocation to try and minimize fragmentation.
 
 We need to optimize for code size (there are compiler options for this, but it makes slower code).
+
+It is pointless to do pointer check around memory allocations, because if you are out of memory it's only a matter of time before the program is going to stop.
 ]
 
 
@@ -612,6 +620,7 @@ Outside of computer programs dividing by zero doesn't make any sense at all.
 
 Mathematically it results in something that is [infinitely complex](http://reference.wolfram.com/language/ref/DirectedInfinity.html).
 
+What is a computer supposed to do with this command?!
 
 ]
 
@@ -667,6 +676,14 @@ int safe = divisor != 0 ? value / divisor : 1;
 ]
 .right-column[
 # Traps and Asserts
+
+These are two things that most programs use to help with error checking.
+
+In a non-master build (a buiild with no debugging symbols) the assert will give information about problems in the program.
+A lot of the time asserts are set up to be skippable.
+
+In the same builds traps will make the program crash. End of story.
+These are put in places where a programmer wants no more progress to be made and also they want to see the callstack of how the code got into that state.
 ]
 
 ---
@@ -676,6 +693,21 @@ int safe = divisor != 0 ? value / divisor : 1;
 ]
 .right-column[
 # What do they it look like
+
+There is a standard `assert` in C++, but most programs add another layer on top to give more information.
+It is normally the assert function and a print out function before it (wrapped in a macro).
+
+```cpp
+ASSERT( x > 0, "x is should be greater than zero, but is is %d", x );
+```
+
+A trap will be the same, but there isn't really a need to print out text as the program is not going to execute anything else.
+
+```cpp
+TRAP( x > 0 );
+```
+
+Notice that you put in the condition that you want to be true.
 ]
 
 ---
@@ -686,6 +718,24 @@ int safe = divisor != 0 ? value / divisor : 1;
 ]
 .right-column[
 # Why do we use them
+
+An assert is generally something that _should_ get fixed, but it's not going to stop the program from running smoothly.
+```cpp
+ASSERT( soundHandle.IsValid(), "Bad sound handle" );
+if ( soundHandle.IsValid )
+{
+    Play( soundHandle );
+}
+```
+A trap is something that is going to stop the program before it crashes somewhere else crazy.
+
+```cpp
+void JoinSession( int sessionId )
+{
+  TRAP( sessionId != -1 ); // CRASH on invalid session
+  // do stuff with sessionId that would fail with -1
+}
+```
 ]
 
 ---
@@ -697,6 +747,12 @@ int safe = divisor != 0 ? value / divisor : 1;
 ]
 .right-column[
 # How does it help
+
+Asserts can let people know issues whlie still letting other people run the program.
+A classic example is adding asserts for bad data input from files such as `XMl`.
+
+You don't need to add traps for invalid pointer use, as that will crash the program anyway, but maybe you want to trap when you set a pointer that is going to be used later in the program.
+Catching the problem as early as possible will help debug the issue.
 ]
 
 ---
