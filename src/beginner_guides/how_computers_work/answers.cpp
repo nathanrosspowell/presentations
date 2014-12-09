@@ -1,5 +1,6 @@
-// Program.cpp 
+// Program.cpp
 #include "stdafx.h"
+#include <cstring>
 
 void Example1();
 void Example2();
@@ -109,7 +110,9 @@ void UserExercise1()
 // Do whatever you need to do so that a has the value of b, and b has the value of a.
 void SwapNumbers( int* a, int* b )
 {
-    // TODO....
+    int c = *a;
+    *a = *b;
+    *b = c;
 }
 
 void UserExercise2()
@@ -119,17 +122,16 @@ void UserExercise2()
     int scores[size] = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
 
     // Task 1:
-    //        Get the sum of the 1st, 2nd and 3rd numbers
+    //        Get the sum, skipping a number each time - e.g. 20, 40...
     int firstThreeNumbers = 0;
-    /*
-    for ( use a for loop )
+    for ( int i = 0; i < 3; ++i )
     {
+        firstThreeNumbers += scores[i];
     }
-    */
     // Results
     if ( firstThreeNumbers == 60)
     {
-        printf( "Summed the first 3 number to 30!");
+        printf( "Summed the first 3 number to 60!\n");
     }
     else
     {
@@ -139,15 +141,14 @@ void UserExercise2()
     // Task 2:
     //        Get the sum, skipping a number each time - e.g. 20, 40...
     int sumOfEveryNextNumber = 0;
-    /*
-    for ( use a for loop )
+    for ( int i = 1; i < size; i += 2 )
     {
+        sumOfEveryNextNumber += scores[i];
     }
-    */
     // Results
     if ( sumOfEveryNextNumber == 300 )
     {
-        printf( "Summed the number to 300!");
+        printf( "Summed the number to 300!\n");
     }
     else
     {
@@ -169,7 +170,31 @@ void UserExercise3()
     printf( "Name = %s\n", name );
 }
 
-void ReverseString( char* name )
+void ReverseString(char *name) 
 {
-
+    // Get the size of the array.
+    int sizeOfArray = 0;
+    char* countSize = name;
+    // Loop until we get to the null terminator.
+    while ( *countSize != '\0' ) //http://en.wikipedia.org/wiki/Null_character 
+    {
+        ++sizeOfArray;
+        ++countSize;
+    }
+    // Set up the start and end.
+    char *start = name;
+    char *end = name + (sizeOfArray - 1);
+    // Out temp value to allow us to do the swap algorithm.
+    char temp = ' ';
+    // Loop for half the size of the array
+    for (int i = 0; i < sizeOfArray / 2; ++i) 
+    {
+        // Swap the value of the start pointer with the value of the end pointer
+        temp = *start;
+        *start = *end;
+        *end = temp;
+        // Move the pointers up one and down one.
+        start += 1;
+        end -= 1;
+    }
 }
