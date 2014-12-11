@@ -69,6 +69,20 @@ module.exports = function(grunt) {
                     'build/beginner_guides/why_crashes_happen/index.html',
                     'temp/beginner_guides/why_crashes_happen/presentation/index.html'
                 ],
+            },
+            make_your_own_program: {
+                template: [
+                    'src/child_page/template.handlebars',
+                    'src/remark/header.handlebars'
+                ],
+                templateData: [
+                    'src/beginner_guides/make_your_own_program/meta.json',
+                    'src/beginner_guides/make_your_own_program/meta.json'
+                ],
+                output: [
+                    'build/beginner_guides/make_your_own_program/index.html',
+                    'temp/beginner_guides/make_your_own_program/presentation/index.html'
+                ],
             }
         },
         concat: {
@@ -93,6 +107,11 @@ module.exports = function(grunt) {
                     'build/beginner_guides/why_crashes_happen/presentation/index.html' : [
                         'temp/beginner_guides/why_crashes_happen/presentation/index.html',
                         'src/beginner_guides/why_crashes_happen/README.md',
+                        'src/remark/footer.html' ],
+                    // make_your_own_program
+                    'build/beginner_guides/make_your_own_program/presentation/index.html' : [
+                        'temp/beginner_guides/make_your_own_program/presentation/index.html',
+                        'src/beginner_guides/make_your_own_program/README.md',
                         'src/remark/footer.html' ],
                     // Main Index.
                     'build/test/index.html' : [
