@@ -9,7 +9,13 @@ module.exports = function(grunt) {
                         src: ['**/*'],
                         dest: 'build/',
                         expand: true, 
-                    }
+                    },
+                    {
+                        cwd: 'src/beginner_guides/',
+                        src: ['**/*.png'],
+                        dest: 'build/img/',
+                        expand: true, 
+                    },
                 ]
             }
         },
