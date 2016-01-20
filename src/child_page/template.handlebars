@@ -54,12 +54,25 @@
         <a class="anchor" id="slides"></a>
         <div class="container">
             <h1>Slides</h1>
-            <a href="presentation" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>{{ title }}</a>
+	    {{#if powerpoint }}
+	    <iframe src='{{ powerpoint }}' width='1186px' height='691px' frameborder='0'>This is an embedded <a target='_blank' href='http://office.com'>Microsoft Office</a> presentation, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe>
+	    {{else}}
+            <a 
+	     	{{#if link }}
+	     	    href={{link}}
+	        {{else}}
+		    href="presentation" 
+		{{/if}}
+		class="btn btn-default btn-lg"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>{{ title }}</a>
+
             <hr/>
+	    {{/if}}
+	    {{#if gist }}
             <a class="anchor" id="practical_work"></a>
             <h1 class="anchor" >Practical Work</h1>
             <script src="{{ gist }}"></script>
             <hr/>
+	    {{/if}}
             <a class="anchor" id="comments"></a>
             <h1>Comments</h1>
             <div id="disqus_thread"></div>

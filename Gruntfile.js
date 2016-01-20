@@ -89,6 +89,20 @@ module.exports = function(grunt) {
                     'build/beginner_guides/make_your_own_program/index.html',
                     'temp/beginner_guides/make_your_own_program/presentation/index.html'
                 ],
+            },
+            pitfalls: {
+                template: [
+                    'src/child_page/template.handlebars',
+                    'src/remark/header.handlebars'
+                ],
+                templateData: [
+                    'src/cusec16/pitfalls/meta.json',
+                    'src/cusec16/pitfalls/meta.json'
+                ],
+                output: [
+                    'build/cusec16/pitfalls/index.html',
+                    'temp/cusec16/pitfalls/presentation/index.html'
+                ],
             }
         },
         concat: {
